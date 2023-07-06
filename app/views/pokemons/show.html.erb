@@ -4,4 +4,7 @@
 
 <p><%= @pokemon.description %></p>
 
-<a href="/pokemons/<%= @pokemon.id %>/edit">Edit</a>
+<%= button_to "Edit", "/edit"(@pokemon), method: :get, class: "edit-button" %>
+
+
+<p><a href="<%= welcome_path(@pokemon) %>">Return to Main Page</a></p>

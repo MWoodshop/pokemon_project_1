@@ -3,9 +3,14 @@
 <% @pokemons.each do |pokemon| %>
   <h3><a href="/pokemons/<%= pokemon.id %>"><%= pokemon.title %></a></h3>
   <p><%= pokemon.description %></p>
-    <form action="/pokemons/<%= pokemon.id %>" method="POST">
+<a href="/pokemons/<%= pokemon.id %>/edit" class="edit-button">Edit</a>
+<input type="submit" value="Delete" class="delete-button" />
+  <form action="/pokemons/<%= pokemon.id %>" method="POST">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="delete"/>
+    <input type="hidden" name="action" value="EDIT">
+    <input type="submit" value="Delete"/>
   </form>
 <% end %>
+
+<p><a href="<%= welcome_path %>">Return to Main Page</a></p>

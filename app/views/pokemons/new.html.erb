@@ -1,7 +1,62 @@
-<form action="/pokemons" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>Enter a new pokemon:</p>
-  <input type='text' name='pokemon[title]'/><br/>
-  <textarea name='pokemon[description]'></textarea><br/>
-  <input type='submit'/>
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pokemon App</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<h1>Add a New Pok&eacute;mon</h1>
+ <div class="container">
+    <form action="/pokemons" method="post">
+      <table>
+        <tr>
+          <td class="label-cell"><label for="pokemon_name">Name:</label></td>
+          <td><input type="text" name="pokemon[name]" id="pokemon_name"></td>
+        </tr>
+        <tr>
+          <td class="label-cell"><label for="pokemon_type">Type:</label></td>
+          <td>
+            <select name="pokemon[type]" id="pokemon_type" class="field-select">
+              <option value="Electric">Electric</option>
+              <option value="Fire">Fire</option>
+              <option value="Grass">Grass</option>
+              <!-- Add more options for other Pokemon types -->
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="label-cell"><label for="pokemon_trainer">Trainer:</label></td>
+          <td><input type="text" name="pokemon[trainer]" id="pokemon_trainer"></td>
+        </tr>
+        <tr>
+          <td class="label-cell"><label for="pokemon_height">Height (inches):</label></td>
+          <td><input type="number" name="pokemon[height]" id="pokemon_height"></td>
+        </tr>
+        <tr>
+          <td class="label-cell"><label for="pokemon_weight">Weigh (pounds):</label></td>
+          <td><input type="number" name="pokemon[weight]" id="pokemon_weight"></td>
+        </tr>
+        <tr>
+          <td class="label-cell"><label for="pokemon_can_evolve">Can Evolve:</label></td>
+          <td>
+            <select name="pokemon[can_evolve]" id="pokemon_can_evolve" class="field-select">
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+          </td>
+        </tr>
+          <td colspan="2" style="text-align: center;">
+            <input type="submit" value="Create Pokemon">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+  <div style="text-align: center;">
+    <button onClick="window.location.href='/pokemons'" id="start">ADD POKEMON</button>
+  </div>
+
+  <p><a href="/">Return to Main Page</a></p>
+</body>
+</html>
