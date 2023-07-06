@@ -1,0 +1,8 @@
+<form action="/pokemons/<%= @pokemon.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Edit</p>
+  <input type='text' name='pokemon[title]' value="<%= @pokemon.title %>"/><br/>
+  <textarea name='pokemon[description]'><%= @pokemon.description %></textarea><br/>
+  <input type='submit'/>
+</form>
