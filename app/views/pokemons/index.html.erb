@@ -1,16 +1,85 @@
-<h1>All pokemons</h1>
-
-<% @pokemons.each do |pokemon| %>
-  <h3><a href="/pokemons/<%= pokemon.id %>"><%= pokemon.title %></a></h3>
-  <p><%= pokemon.description %></p>
-<a href="/pokemons/<%= pokemon.id %>/edit" class="edit-button">Edit</a>
-<input type="submit" value="Delete" class="delete-button" />
-  <form action="/pokemons/<%= pokemon.id %>" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="hidden" name="action" value="EDIT">
-    <input type="submit" value="Delete"/>
-  </form>
-<% end %>
-
-<p><a href="<%= welcome_path %>">Return to Main Page</a></p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>All Pokemons</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <style>
+      .mouseover-button {
+        margin-top: 10px;
+        line-height: 30px;
+        font-weight: bold;
+        font-size: large;
+        color: black;
+        padding: 0 20px;
+        background: lightblue;
+        border: 3px solid #003060;
+        border-radius: 40px;
+        box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+        text-decoration: none;
+      }
+      .mouseover-button:hover {
+        background: #003060;
+        color: white;
+        position: relative;
+        top: 3px;
+        box-shadow: none;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>All pokemons</h1>
+    <div class="pokemon-entries-container">
+      <table>
+        <% @pokemons.each do |pokemon| %>
+          <tr>
+            <td colspan="2" class="pokemon-entry">
+              <table>
+                <tr>
+                  <td class="label-cell">Name:</td>
+                  <td><%= pokemon.name %></td>
+                </tr>
+                <tr>
+                  <td class="label-cell">Type:</td>
+                  <td><%= pokemon.pokemon_type %></td>
+                </tr>
+                <tr>
+                  <td class="label-cell">Trainer:</td>
+                  <td><%= pokemon.trainer %></td>
+                </tr>
+                <tr>
+                  <td class="label-cell">Height (inches):</td>
+                  <td><%= pokemon.height %></td>
+                </tr>
+                <tr>
+                  <td class="label-cell">Weight (pounds):</td>
+                  <td><%= pokemon.weight %></td>
+                </tr>
+                <tr>
+                  <td class="label-cell">Can Evolve:</td>
+                  <td><%= pokemon.can_evolve %></td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="text-align: center;">
+                    <div class="button-group">
+                      <a href="/pokemons/<%= pokemon.id %>/edit" class="small_button mouseover-button">Edit</a>
+                      <form action="/pokemons/<%= pokemon.id %>" method="POST">
+                        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="action" value="EDIT">
+                        <input type="submit" value="Delete" class="small_button mouseover-button delete-button"/>
+                      </form>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div style="text-align: center;">
+      <button onClick="window.location.href='/'" id="return_button">Return to Main Page</button>
+    </div>
+  </body>
+</html>

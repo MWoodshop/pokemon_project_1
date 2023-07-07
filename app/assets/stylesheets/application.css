@@ -23,13 +23,13 @@
   border-radius: 50%;
   text-decoration: none;
   cursor: pointer;
-  width: 100px;
-  height: 100px;
+  margin-top: 10px;
+  line-height: 30px;
   position: relative;
   overflow: hidden;
 }
 
-.edit-button:before, .delete-button:before {
+.delete-button:before, .delete-button:after {
   content: '';
   position: absolute;
   background-color: #fff;
@@ -38,9 +38,10 @@
   border-radius: 50%;
   left: 10px;
   top: 10px;
+  cursor: pointer;
 }
 
-.edit-button:after, .delete-button:after {
+.delete-button:after {
   content: '';
   position: absolute;
   background-color: #000;
@@ -49,6 +50,7 @@
   border-radius: 50%;
   left: 40px;
   top: 40px;
+  cursor: pointer;
 }
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
@@ -131,9 +133,9 @@ body {
   text-align: center;
   font-family: 'Josefin Sans', sans-serif;
   color: #003060;
-  font-size: 10px;
+  font-size: 14px;
 }
-#start {
+#big_button {
   margin-top: 20px;
   line-height: 60px;
   font-weight: bold;
@@ -144,14 +146,84 @@ body {
   border: 3px solid #003060;
   border-radius: 40px;
   box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
 }
-#start:hover {
+#big_button:hover {
   background: #003060;
   color: white;
   position: relative;
-  top: 10px;
+  top: 3px;
   box-shadow: none;
+  cursor: pointer;
 }
+#small_button {
+  margin-top: 10px;
+  line-height: 30px;
+  font-weight: bold;
+  font-size: large;
+  color: black;
+  padding: 0 20px;
+  background: lightblue;
+  border: 3px solid #003060;
+  border-radius: 40px;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+  cursor: pointer;
+
+}
+#small_button:hover {
+  background: #003060;
+  color: white;
+  position: relative;
+  top: 3px;
+  box-shadow: none;
+  text-decoration: none;
+  cursor: pointer;
+
+}
+#return_button {
+  margin: 5px auto;
+  line-height: 15px;
+  font-weight: bold;
+  color: white;
+  padding: 0 20px;
+  background: #FF1616;
+  border: 1px solid white;
+  border-radius: 40px;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#return_button:hover {
+  background: white;
+  color: #FF1616;
+  border: 1px solid #FF1616;
+  position: relative;
+  top: 3px;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+#return_button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  background: url('/assets/pokeball.png') no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+#return_button span {
+  margin-left: 20px;
+}
+
+
 #logo {
   height: 150px;
 }
@@ -185,19 +257,137 @@ span {
   box-shadow: none;
 }
 
-    /* CSS to center the table horizontally */
+
     .container {
       display: flex;
       justify-content: center;
     }
 
-        /* CSS to adjust the width of select elements */
     .field-select {
       width: 100%;
       box-sizing: border-box;
     }
 
-        /* CSS to align labels to the left */
+
     td.label-cell {
       text-align: left;
     }
+
+    .checkbox-cell {
+  display: flex;
+  align-items: center;
+}
+
+.pokemon-entry {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+td {
+  text-align: left;
+}
+
+td.label-cell {
+  width: 150px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.small_button {
+  margin-top: 10px;
+  line-height: 30px;
+  font-weight: bold;
+  font-size: large;
+  color: black;
+  padding: 0 20px;
+  background: lightblue;
+  border: 3px solid #003060;
+  border-radius: 40px;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+}
+
+.pokemon-entries-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pokemon-entry {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 10px;
+  table-layout: fixed;
+}
+
+td {
+  text-align: left;
+}
+
+td.label-cell {
+  width: 150px;
+}
+
+td.data-cell {
+  text-align: left;
+}
+
+tr {
+  display: flex;
+}
+
+tr:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.small_button {
+  margin-top: 10px;
+  line-height: 30px;
+  font-weight: bold;
+  font-size: large;
+  color: black;
+  padding: 0 20px;
+  background: lightblue;
+  border: 3px solid #003060;
+  border-radius: 40px;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
