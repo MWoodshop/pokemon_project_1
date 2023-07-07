@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pokemon App</title>
+  </head>
+  <body>
+    <div>
+      <img id = "logo" src = "https://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-png-2000.png">
+    </div>
+    <h1>Edit Pok&eacute;mon</h1>
+    <div class="container">
+      <%= form_with(model: @pokemon, url: update_pokemon_path(@pokemon), method: :patch, html: { id: 'form_id' }) do |form| %>
+        <table>
+          <tr>
+            <td class="label-cell"><%= form.label :name, 'Name:' %></td>
+            <td><%= form.text_field :name, id: 'pokemon_name' %></td>
+          </tr>
+          <tr>
+            <td class="label-cell"><%= form.label :pokemon_type, 'Type:' %></td>
+            <td>
+              <%= form.select :pokemon_type, options_for_select(['Electric', 'Fire', 'Grass']), {}, id: 'pokemon_type', class: 'field-select' %>
+            </td>
+          </tr>
+          <tr>
+            <td class="label-cell"><%= form.label :trainer, 'Trainer:' %></td>
+            <td><%= form.text_field :trainer, id: 'pokemon_trainer' %></td>
+          </tr>
+          <tr>
+            <td class="label-cell"><%= form.label :height, 'Height (inches):' %></td>
+            <td><%= form.number_field :height, id: 'pokemon_height' %></td>
+          </tr>
+          <tr>
+            <td class="label-cell"><%= form.label :weight, 'Weight (pounds):' %></td>
+            <td><%= form.number_field :weight, id: 'pokemon_weight' %></td>
+          </tr>
+          <tr>
+            <td class="label-cell"><%= form.label :can_evolve, 'Can Evolve:' %></td>
+            <td>
+              <div class="checkbox-cell">
+                <%= form.check_box :can_evolve, {}, 'true', 'false' %>
+              </div>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+    <br>
+    <div style="text-align: center;">
+      <button type="submit" form="form_id" id="small_button">Confirm</button>
+    </div>
+    <div style="text-align: center;">
+      <button onClick="window.location.href='/'" id="return_button">Return to Main Page</button>
+    </div>
+  </body>
+</html>

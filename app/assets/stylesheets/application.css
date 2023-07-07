@@ -13,3 +13,381 @@
  *= require_tree .
  *= require_self
  */
+
+.edit-button, .delete-button {
+  display: inline-block;
+  padding: 10px;
+  background-color: #f00;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 10px;
+  line-height: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.delete-button:before, .delete-button:after {
+  content: '';
+  position: absolute;
+  background-color: #fff;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  left: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.delete-button:after {
+  content: '';
+  position: absolute;
+  background-color: #000;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  left: 40px;
+  top: 40px;
+  cursor: pointer;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  background: #ecf0f1;
+}
+.center-on-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+/* Poké Styles */
+.pokeball {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  border: 10px solid #000;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: inset -10px 10px 0 10px #ccc;
+  animation: fall .25s ease-in-out,
+             shake 1.25s cubic-bezier(.36,.07,.19,.97) 3;
+}
+.pokeball::before,
+.pokeball::after {
+  content:"";
+  position: absolute;
+}
+.pokeball::before {
+  background: red;
+  width: 100%;
+  height: 50%;
+}
+.pokeball::after {
+  top: calc(50% - 10px);
+  width: 100%;
+  height: 20px;
+  background: #000;
+}
+.pokeball__button {
+  position: absolute;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  width: 60px;
+  height: 60px;
+  background: #7f8c8d;
+  border: 10px solid #fff;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 0 10px black;
+  animation: blink .5s alternate 7;
+}
+/* Animation */
+@keyframes blink {
+  from { background: #eee;}
+  to { background: #e74c3c; }
+}
+@keyframes shake {
+  0 { transform: translate(0, 0) rotate(0); }
+  20% { transform: translate(-10px, 0) rotate(-20deg); }
+  30% { transform: translate(10px, 0) rotate(20deg); }
+  50% { transform: translate(-10px, 0) rotate(-10deg); }
+  60% { transform: translate(10px, 0) rotate(10deg); }
+  100% { transform: translate(0, 0) rotate(0); }
+}
+@keyframes fall {
+  0% { top: -200px }
+  60% { top: 0 }
+  80% { top: -20px }
+  100% { top: 0 }
+}
+
+body {
+  background-color: white;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #003060;
+  font-size: 14px;
+}
+#big_button {
+  margin-top: 20px;
+  line-height: 60px;
+  font-weight: bold;
+  font-size: large;
+  color: black;
+  padding: 0 40px;
+  background: lightblue;
+  border: 3px solid #003060;
+  border-radius: 40px;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+#big_button:hover {
+  background: #003060;
+  color: white;
+  position: relative;
+  top: 3px;
+  box-shadow: none;
+  cursor: pointer;
+}
+#small_button {
+  margin-top: 10px;
+  line-height: 30px;
+  font-weight: bold;
+  font-size: large;
+  color: black;
+  padding: 0 20px;
+  background: lightblue;
+  border: 3px solid #003060;
+  border-radius: 40px;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+  cursor: pointer;
+
+}
+#small_button:hover {
+  background: #003060;
+  color: white;
+  position: relative;
+  top: 3px;
+  box-shadow: none;
+  text-decoration: none;
+  cursor: pointer;
+
+}
+#return_button {
+  margin: 5px auto;
+  line-height: 15px;
+  font-weight: bold;
+  color: white;
+  padding: 0 20px;
+  background: #FF1616;
+  border: 1px solid white;
+  border-radius: 40px;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#return_button:hover {
+  background: white;
+  color: #FF1616;
+  border: 1px solid #FF1616;
+  position: relative;
+  top: 3px;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+#return_button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  background: url('/assets/pokeball.png') no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+#return_button span {
+  margin-left: 20px;
+}
+
+
+#logo {
+  height: 150px;
+}
+span {
+  font-family: 'Wendy One', sans-serif;
+  font-size: 50px;
+  color: #ffcc00;
+  text-shadow:
+       3px 3px 0 navy,
+     -1px -1px 0 navy,
+      1px -1px 0 navy,
+      -1px 1px 0 navy,
+       1px 1px 0 navy;
+}
+.attackbuttons {
+  margin: 20px 5px 0 5px;
+  line-height: 40px;
+  font-size: 20px;
+  color: black;
+  padding: 0 20px;
+  background: lightblue;
+  border: 3px solid #003060;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+}
+.attackbuttons:hover {
+  background: #003060;
+  color: white;
+  position: relative;
+  top: 10px;
+  box-shadow: none;
+}
+
+
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .field-select {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+
+    td.label-cell {
+      text-align: left;
+    }
+
+    .checkbox-cell {
+  display: flex;
+  align-items: center;
+}
+
+.pokemon-entry {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+td {
+  text-align: left;
+}
+
+td.label-cell {
+  width: 150px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.small_button {
+  margin-top: 10px;
+  line-height: 30px;
+  font-weight: bold;
+  font-size: large;
+  color: black;
+  padding: 0 20px;
+  background: lightblue;
+  border: 3px solid #003060;
+  border-radius: 40px;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+}
+
+.pokemon-entries-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pokemon-entry {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 10px;
+  table-layout: fixed;
+}
+
+td {
+  text-align: left;
+}
+
+td.label-cell {
+  width: 150px;
+}
+
+td.data-cell {
+  text-align: left;
+}
+
+tr {
+  display: flex;
+}
+
+tr:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.small_button {
+  margin-top: 10px;
+  line-height: 30px;
+  font-weight: bold;
+  font-size: large;
+  color: black;
+  padding: 0 20px;
+  background: lightblue;
+  border: 3px solid #003060;
+  border-radius: 40px;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+

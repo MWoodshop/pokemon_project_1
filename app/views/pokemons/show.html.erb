@@ -1,0 +1,17 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <a href="/pokemons">Pokemon Index</a>
+    <h1><%= @pokemon.name %></h1>
+    <p>Type: <%= @pokemon.pokemon_type %></p>
+    <p>Trainer: <%= @pokemon.trainer %></p>
+    <p>Height: <%= @pokemon.height %></p>
+    <p>Weight: <%= @pokemon.weight %></p>
+    <p>Can Evolve: <%= @pokemon.can_evolve %></p>
+    <%= button_to "Edit", edit_pokemon_path(@pokemon), method: :get %>
+    <div style="text-align: center;">
+      <button onClick="window.location.href='/'" id="return_button">Return to Main Page</button>
+    </div>
+  </body>
+</html>
