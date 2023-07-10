@@ -22,7 +22,7 @@
           <tr>
             <td class="label-cell"><%= form.label :pokemon_type, 'Type:' %></td>
             <td>
-              <%= form.select :region, options_for_select(['Normal', 'Fire', 'Fighting', 'Water', 'Flying', 'Grass', 'Poison', 'Electric', 'Ground', 'Psychic', 'Rock', 'Ice', 'Bug', 'Dragon', 'Ghost', 'Dark', 'Steel', 'Fairy']), {}, id: 'pokemon_type', class: 'field-select' %>
+              <%= form.select :pokemon_type, options_for_select(['Normal', 'Fire', 'Fighting', 'Water', 'Flying', 'Grass', 'Poison', 'Electric', 'Ground', 'Psychic', 'Rock', 'Ice', 'Bug', 'Dragon', 'Ghost', 'Dark', 'Steel', 'Fairy'], @pokemon.pokemon_type), {}, id: 'pokemon_type', class: 'field-select' %>
             </td>
           </tr>
           <tr>
@@ -52,7 +52,7 @@
             <td><%= @pokemon.created_at %></td>
           </tr>
           <tr>
-            <td class="label-cell">Created At:</td>
+            <td class="label-cell">Updated At:</td>
             <td><%= @pokemon.updated_at %></td>
           </tr>
         </table>
