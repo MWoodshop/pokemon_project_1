@@ -40,7 +40,7 @@ Then I see each pokemon in the system including the pokemon's attributes
 ```
 
 ```
-[ ] done
+[✓] done
 
 User Story 4, pokemon Show
 
