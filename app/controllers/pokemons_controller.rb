@@ -34,6 +34,11 @@ class PokemonsController < ApplicationController
     redirect_to '/pokemons'
   end
 
+  def assigned_pokemons
+    @trainer = Trainer.find(params[:trainer_id])
+    @pokemons = @trainer.pokemons
+  end
+
   private
 
   def pokemon_params

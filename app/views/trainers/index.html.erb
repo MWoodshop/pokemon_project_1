@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Trainer-Dex</title>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <style>
-      .mouseover-button {
-        margin-top: 10px;
-        line-height: 30px;
-        font-weight: bold;
-        font-size: large;
-        color: black;
-        padding: 0 20px;
-        background: lightblue;
-        border: 3px solid #003060;
-        border-radius: 40px;
-        box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
-        text-decoration: none;
-      }
-      .mouseover-button:hover {
-        background: #003060;
-        color: white;
-        position: relative;
-        top: 3px;
-        box-shadow: none;
-        text-decoration: none;
-      }
-    </style>
-  </head>
-  <body>
-    <div>
-      <img id = "logo" src = "https://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-png-2000.png">
-    </div>
-    <div class="pokemon-entries-container">
-      <table>
+<head>
+  <title>Trainer-Dex</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <style>
+    .mouseover-button {
+      margin-top: 10px;
+      line-height: 30px;
+      font-weight: bold;
+      font-size: large;
+      color: black;
+      padding: 0 20px;
+      background: lightblue;
+      border: 3px solid #003060;
+      border-radius: 40px;
+      box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+      text-decoration: none;
+    }
+
+    .mouseover-button:hover {
+      background: #003060;
+      color: white;
+      position: relative;
+      top: 3px;
+      box-shadow: none;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <img id="logo"
+       src="https://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-png-2000.png">
+</div>
 <div class="trainer-entries-container">
   <table>
     <% @trainers.each do |trainer| %>
@@ -41,7 +41,7 @@
           <table>
             <tr>
               <td class="label-cell">Name:</td>
-              <td><b><a href="/trainers/<%= trainer.id %>"><%= trainer.name %></a></b></td>
+              <td><b><a href="<%= trainer_path(trainer) %>"><%= trainer.name %></a></b></td>
             </tr>
             <tr>
               <td class="label-cell">ID:</td>
@@ -60,16 +60,18 @@
               <td><%= trainer.gym_leader %></td>
             </tr>
             <tr>
-              <td class="label-cell">Assigned Pokémon:</td>
+<td class="label-cell"><%= link_to 'Assigned Pokémon', "/trainers/#{trainer.id}/pokemons" %>:</td>
               <td>
                 <% trainer.pokemons.each do |pokemon| %>
                   <%= pokemon.name %><br>
                 <% end %>
               </td>
             </tr>
+              </td>
+            </tr>
             <tr>
-            <td class="label-cell">Created At:</td>
-            <td><%= trainer.created_at %></td>
+              <td class="label-cell">Created At:</td>
+              <td><%= trainer.created_at %></td>
             </tr>
             <td class="label-cell">Updated At:</td>
             <td><%= trainer.updated_at %></td>
@@ -77,13 +79,19 @@
             <tr>
               <td colspan="2" style="text-align: center;">
                 <div class="button-group">
-                  <a href="/trainers/<%= trainer.id %>/edit" class="small_button mouseover-button">Edit</a>
-                  <form action="/trainers/<%= trainer.id %>" method="POST">
+                  <a href="<%= edit_trainer_path(trainer) %>" class="small_button mouseover-button">Edit</a>
+                  <form action="<%= trainer_path(trainer) %>" method="POST">
                     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                     <input type="hidden" name="_method" value="DELETE">
-                    <input type="hidden" name="action" value="EDIT">
-                    <input type="submit" value="Delete" class="small_button mouseover-button delete-button"/>
+                    <input type="submit" value="Delete" class="small_button mouseover-button delete-button" />
                   </form>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" style="text-align: center;">
+                <div class="button-group">
+                  <a href="<%= assigned_trainer_pokemons_path(trainer_id: trainer.id) %>" class="small_button mouseover-button">View Pokemons</a>
                 </div>
               </td>
             </tr>
@@ -99,4 +107,3 @@
 </div>
 </body>
 </html>
-
