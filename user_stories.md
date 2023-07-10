@@ -18,7 +18,7 @@ Then I see the name of each trainer record in the system
 ```
 
 ```
-[ ] done
+[✓] done
 
 User Story 2, trainer Show
 
@@ -34,7 +34,7 @@ Then I see the trainer with that id including the trainer's attributes
 User Story 3, pokemon Index
 
 As a visitor
-When I visit '/pokemon_table_name'
+When I visit '/pokemons'
 Then I see each pokemon in the system including the pokemon's attributes
 (data from each column that is on the pokemon table)
 ```
@@ -45,7 +45,7 @@ Then I see each pokemon in the system including the pokemon's attributes
 User Story 4, pokemon Show
 
 As a visitor
-When I visit '/pokemon_table_name/:id'
+When I visit '/pokemons/:id'
 Then I see the pokemon with that id including the pokemon's attributes
 (data from each column that is on the pokemon table)
 ```
@@ -56,7 +56,7 @@ Then I see the pokemon with that id including the pokemon's attributes
 User Story 5, trainer pokemonren Index
 
 As a visitor
-When I visit '/trainers/:trainer_id/pokemon_table_name'
+When I visit '/trainers/:trainer_id/pokemons'
 Then I see each pokemon that is associated with that trainer with each pokemon's attributes
 (data from each column that is on the pokemon table)
 ```
@@ -113,7 +113,7 @@ User Story 10, trainer pokemon Index Link
 
 As a visitor
 When I visit a trainer show page ('/trainers/:id')
-Then I see a link to take me to that trainer's `pokemon_table_name` page ('/trainers/:id/pokemon_table_name')
+Then I see a link to take me to that trainer's `pokemon` page ('/trainers/:id/pokemons')
 ```
 
 ---
@@ -165,10 +165,10 @@ As a visitor
 When I visit a trainer pokemonren Index page
 Then I see a link to add a new adoptable pokemon for that trainer "Create pokemon"
 When I click the link
-I am taken to '/trainers/:trainer_id/pokemon_table_name/new' where I see a form to add a new adoptable pokemon
+I am taken to '/trainers/:trainer_id/pokemons/new' where I see a form to add a new adoptable pokemon
 When I fill in the form with the pokemon's attributes:
 And I click the button "Create pokemon"
-Then a `POST` request is sent to '/trainers/:trainer_id/pokemon_table_name',
+Then a `POST` request is sent to '/trainers/:trainer_id/pokemons',
 a new pokemon object/row is created for that trainer,
 and I am redirected to the trainer pokemons Index page where I can see the new pokemon listed
 ```
@@ -182,9 +182,9 @@ As a visitor
 When I visit a pokemon Show page
 Then I see a link to update that pokemon "Update pokemon"
 When I click the link
-I am taken to '/pokemon_table_name/:id/edit' where I see a form to edit the pokemon's attributes:
+I am taken to '/pokemons/:id/edit' where I see a form to edit the pokemon's attributes:
 When I click the button to submit the form "Update pokemon"
-Then a `PATCH` request is sent to '/pokemon_table_name/:id',
+Then a `PATCH` request is sent to '/pokemons/:id',
 the pokemon's data is updated,
 and I am redirected to the pokemon Show page where I see the pokemon's updated information
 ```
@@ -233,10 +233,10 @@ I should be taken to that trainer's edit page where I can update its information
 User Story 18, pokemon Update From pokemons Index Page
 
 As a visitor
-When I visit the `pokemon_table_name` index page or a trainer `pokemon_table_name` index page
+When I visit the `pokemon` index page or a trainer `pokemon` index page
 Next to every pokemon, I see a link to edit that pokemon's info
 When I click the link
-I should be taken to that `pokemon_table_name` edit page where I can update its information just like in User Story 14
+I should be taken to that `pokemon` edit page where I can update its information just like in User Story 14
 ```
 
 ---
@@ -268,7 +268,7 @@ As a visitor
 When I visit a pokemon show page
 Then I see a link to delete the pokemon "Delete pokemon"
 When I click the link
-Then a 'DELETE' request is sent to '/pokemon_table_name/:id',
+Then a 'DELETE' request is sent to '/pokemons/:id',
 the pokemon is deleted,
 and I am redirected to the pokemon index page where I no longer see this pokemon
 ```
@@ -307,10 +307,10 @@ I am returned to the trainer Index Page where I no longer see that trainer
 User Story 23, pokemon Delete From pokemons Index Page
 
 As a visitor
-When I visit the `pokemon_table_name` index page or a trainer `pokemon_table_name` index page
+When I visit the `pokemon` index page or a trainer `pokemon` index page
 Next to every pokemon, I see a link to delete that pokemon
 When I click the link
-I should be taken to the `pokemon_table_name` index page where I no longer see that pokemon
+I should be taken to the `pokemon` index page where I no longer see that pokemon
 ```
 
 ---
@@ -324,9 +324,9 @@ Extension 1: Sort trainers by Number of pokemonren
 
 As a visitor
 When I visit the trainers Index Page
-Then I see a link to sort trainers by the number of `pokemon_table_name` they have
+Then I see a link to sort trainers by the number of `pokemon` they have
 When I click on the link
-I'm taken back to the trainer Index Page where I see all of the trainers in order of their count of `pokemon_table_name` (highest to lowest) And, I see the number of pokemonren next to each trainer name
+I'm taken back to the trainer Index Page where I see all of the trainers in order of their count of `pokemon` (highest to lowest) And, I see the number of pokemonren next to each trainer name
 ```
 
 ```
@@ -335,7 +335,7 @@ I'm taken back to the trainer Index Page where I see all of the trainers in orde
 Extension 2: Search by name (exact match)
 
 As a visitor
-When I visit an index page ('/trainers') or ('/pokemon_table_name')
+When I visit an index page ('/trainers') or ('/pokemons')
 Then I see a text box to filter results by keyword
 When I type in a keyword that is an exact match of one or more of my records and press the Search button
 Then I only see records that are an exact match returned on the page
@@ -347,7 +347,7 @@ Then I only see records that are an exact match returned on the page
 Extension 3: Search by name (partial match)
 
 As a visitor
-When I visit an index page ('/trainers') or ('/pokemon_table_name')
+When I visit an index page ('/trainers') or ('/pokemons')
 Then I see a text box to filter results by keyword
 When I type in a keyword that is an partial match of one or more of my records and press the Search button
 Then I only see records that are an partial match returned on the page
@@ -372,7 +372,7 @@ Then I see the trainer with that id including the trainer's attributes
 User Story 3, pokemon Index
 
 As a visitor
-When I visit '/pokemon_table_name'
+When I visit '/pokemons'
 Then I see each pokemon in the system including the pokemon's attributes
 (data from each column that is on the pokemon table)
 [ ] done
@@ -380,7 +380,7 @@ Then I see each pokemon in the system including the pokemon's attributes
 User Story 4, pokemon Show
 
 As a visitor
-When I visit '/pokemon_table_name/:id'
+When I visit '/pokemons/:id'
 Then I see the pokemon with that id including the pokemon's attributes
 (data from each column that is on the pokemon table)
 [ ] done
@@ -388,7 +388,7 @@ Then I see the pokemon with that id including the pokemon's attributes
 User Story 5, trainer pokemonren Index
 
 As a visitor
-When I visit '/trainers/:trainer_id/pokemon_table_name'
+When I visit '/trainers/:trainer_id/pokemons'
 Then I see each pokemon that is associated with that trainer with each pokemon's attributes
 (data from each column that is on the pokemon table)
 ActiveRecord
@@ -428,7 +428,7 @@ User Story 10, trainer pokemon Index Link
 
 As a visitor
 When I visit a trainer show page ('/trainers/:id')
-Then I see a link to take me to that trainer's `pokemon_table_name` page ('/trainers/:id/pokemon_table_name')
+Then I see a link to take me to that trainer's `pokemon` page ('/trainers/:id/pokemons')
 Iteration 2
 CRUD
 [ ] done
@@ -467,10 +467,10 @@ As a visitor
 When I visit a trainer pokemonren Index page
 Then I see a link to add a new adoptable pokemon for that trainer "Create pokemon"
 When I click the link
-I am taken to '/trainers/:trainer_id/pokemon_table_name/new' where I see a form to add a new adoptable pokemon
+I am taken to '/trainers/:trainer_id/pokemons/new' where I see a form to add a new adoptable pokemon
 When I fill in the form with the pokemon's attributes:
 And I click the button "Create pokemon"
-Then a `POST` request is sent to '/trainers/:trainer_id/pokemon_table_name',
+Then a `POST` request is sent to '/trainers/:trainer_id/pokemons',
 a new pokemon object/row is created for that trainer,
 and I am redirected to the trainer pokemons Index page where I can see the new pokemon listed
 [ ] done
@@ -481,9 +481,9 @@ As a visitor
 When I visit a pokemon Show page
 Then I see a link to update that pokemon "Update pokemon"
 When I click the link
-I am taken to '/pokemon_table_name/:id/edit' where I see a form to edit the pokemon's attributes:
+I am taken to '/pokemons/:id/edit' where I see a form to edit the pokemon's attributes:
 When I click the button to submit the form "Update pokemon"
-Then a `PATCH` request is sent to '/pokemon_table_name/:id',
+Then a `PATCH` request is sent to '/pokemons/:id',
 the pokemon's data is updated,
 and I am redirected to the pokemon Show page where I see the pokemon's updated information
 ActiveRecord
@@ -518,10 +518,10 @@ I should be taken to that trainer's edit page where I can update its information
 User Story 18, pokemon Update From pokemons Index Page
 
 As a visitor
-When I visit the `pokemon_table_name` index page or a trainer `pokemon_table_name` index page
+When I visit the `pokemon` index page or a trainer `pokemon` index page
 Next to every pokemon, I see a link to edit that pokemon's info
 When I click the link
-I should be taken to that `pokemon_table_name` edit page where I can update its information just like in User Story 14
+I should be taken to that `pokemon` edit page where I can update its information just like in User Story 14
 Iteration 3
 CRUD
 [ ] done
@@ -543,7 +543,7 @@ As a visitor
 When I visit a pokemon show page
 Then I see a link to delete the pokemon "Delete pokemon"
 When I click the link
-Then a 'DELETE' request is sent to '/pokemon_table_name/:id',
+Then a 'DELETE' request is sent to '/pokemons/:id',
 the pokemon is deleted,
 and I am redirected to the pokemon index page where I no longer see this pokemon
 ActiveRecord
@@ -571,10 +571,10 @@ I am returned to the trainer Index Page where I no longer see that trainer
 User Story 23, pokemon Delete From pokemons Index Page
 
 As a visitor
-When I visit the `pokemon_table_name` index page or a trainer `pokemon_table_name` index page
+When I visit the `pokemon` index page or a trainer `pokemon` index page
 Next to every pokemon, I see a link to delete that pokemon
 When I click the link
-I should be taken to the `pokemon_table_name` index page where I no longer see that pokemon
+I should be taken to the `pokemon` index page where I no longer see that pokemon
 Extensions
 [ ] done
 
@@ -582,15 +582,15 @@ Extension 1: Sort trainers by Number of pokemonren
 
 As a visitor
 When I visit the trainers Index Page
-Then I see a link to sort trainers by the number of `pokemon_table_name` they have
+Then I see a link to sort trainers by the number of `pokemon` they have
 When I click on the link
-I'm taken back to the trainer Index Page where I see all of the trainers in order of their count of `pokemon_table_name` (highest to lowest) And, I see the number of pokemonren next to each trainer name
+I'm taken back to the trainer Index Page where I see all of the trainers in order of their count of `pokemon` (highest to lowest) And, I see the number of pokemonren next to each trainer name
 [ ] done
 
 Extension 2: Search by name (exact match)
 
 As a visitor
-When I visit an index page ('/trainers') or ('/pokemon_table_name')
+When I visit an index page ('/trainers') or ('/pokemons')
 Then I see a text box to filter results by keyword
 When I type in a keyword that is an exact match of one or more of my records and press the Search button
 Then I only see records that are an exact match returned on the page
@@ -599,7 +599,7 @@ Then I only see records that are an exact match returned on the page
 Extension 3: Search by name (partial match)
 
 As a visitor
-When I visit an index page ('/trainers') or ('/pokemon_table_name')
+When I visit an index page ('/trainers') or ('/pokemons')
 Then I see a text box to filter results by keyword
 When I type in a keyword that is an partial match of one or more of my records and press the Search button
 Then I only see records that are an partial match returned on the page
