@@ -16,6 +16,10 @@
             <td><%= form.text_field :name, id: 'trainer_name' %></td>
           </tr>
           <tr>
+            <td class="label-cell">Trainer ID:</td>
+            <td><%= @trainer.id %></td>
+          </tr>
+          <tr>
             <td class="label-cell"><%= form.label :region, 'Type:' %></td>
             <td>
               <%= form.select :region, options_for_select(['Kanto', 'Johto', 'Hoenn', 'Sinnoh', 'Unova', 'Kalos', 'Alola', 'Galar', 'Paldea']), {}, id: 'trainer_region', class: 'field-select' %>
@@ -23,7 +27,7 @@
           </tr>
           <tr>
             <td class="label-cell"><%= form.label :generation_introduced, 'Generation Introduced:' %></td>
-            <td><%= form.number_field :height, id: 'trainer_generation_introduced' %></td>
+            <td><%= form.number_field :generation_introduced, id: 'trainer_generation_introduced' %></td>
           </tr>
           <tr>
             <td class="label-cell"><%= form.label :gym_leader, 'Gym Leader:' %></td>

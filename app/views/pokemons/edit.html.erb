@@ -16,6 +16,10 @@
             <td><%= form.text_field :name, id: 'pokemon_name' %></td>
           </tr>
           <tr>
+            <td class="label-cell">Pokemon ID:</td>
+            <td><%= @pokemon.id %></td>
+          </tr>
+          <tr>
             <td class="label-cell"><%= form.label :pokemon_type, 'Type:' %></td>
             <td>
               <%= form.select :region, options_for_select(['Normal', 'Fire', 'Fighting', 'Water', 'Flying', 'Grass', 'Poison', 'Electric', 'Ground', 'Psychic', 'Rock', 'Ice', 'Bug', 'Dragon', 'Ghost', 'Dark', 'Steel', 'Fairy']), {}, id: 'pokemon_type', class: 'field-select' %>

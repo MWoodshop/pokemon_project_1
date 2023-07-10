@@ -1,15 +1,76 @@
 <html>
   <head>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <style>
+      .mouseover-button {
+      margin-top: 10px;
+      line-height: 30px;
+      font-weight: bold;
+      font-size: large;
+      color: black;
+      padding: 0 20px;
+      background: lightblue;
+      border: 3px solid #003060;
+      border-radius: 40px;
+      box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+      text-decoration: none;
+      }
+      .mouseover-button:hover {
+      background: #003060;
+      color: white;
+      position: relative;
+      top: 3px;
+      box-shadow: none;
+      text-decoration: none;
+      }
+    </style>
+    <title><%= @trainer.name %></title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <a href="/trainers">Trainer Index</a>
-    <h1><%= @trainer.name %></h1>
-    <p>Region: <%= @trainer.region %></p>
-    <p>Generation Introduced: <%= @trainer.generation_introduced %></p>
-    <p>Gym Leader: <%= @trainer.gym_leader %></p>
-    <%= button_to "Edit", edit_trainer_path(@trainer), method: :get %>
-    <div style="text-align: center;">
-      <button onClick="window.location.href='/'" id="return_button">Return to Main Page</button>
+    <div>
+      <img id = "logo" src = "https://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-png-2000.png">
     </div>
-  </body>
-</html>
+    <div class="pokemon-entries-container">
+      <table>
+        <table>
+          <tr>
+            <td class="label-cell">Name:</td>
+            <td><%= @trainer.name %></td>
+          </tr>
+          <tr>
+            <td class="label-cell">Trainer ID:</td>
+            <td><%= @trainer.id %></td>
+          </tr>
+          <tr>
+            <td class="label-cell">Region:</td>
+            <td><%= @trainer.region %></td>
+          </tr>
+          <tr>
+            <td class="label-cell">Generation Introduced:</td>
+            <td><%= @trainer.generation_introduced %></td>
+          </tr>
+          <tr>
+            <td class="label-cell">Gym Leader:</td>
+            <td><%= @trainer.gym_leader %></td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: center;">
+              <div class="button-group">
+                <a href="/trainers/<%= @trainer.id %>/edit" class="small_button mouseover-button">Edit</a>
+                <form action="/trainers/<%= @trainer.id %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this Trainer?');">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <input type="hidden" name="action" value="EDIT">
+                  <input type="submit" value="Delete" class="small_button mouseover-button delete-button"/>
+                </form>
+              </div>
+            </table>
+            <div style="text-align: center;">
+              <button onClick="window.location.href='/'" id="return_button">Return to Main Page</button>
+            </div>
+            <div style="text-align: center;">
+              <button onClick="window.location.href='/trainers'" id="return_button">Return to Trainer Index</button>
+            </div>
+          </body>
+        </html>
