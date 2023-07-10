@@ -60,7 +60,7 @@
               <td><%= trainer.gym_leader %></td>
             </tr>
             <tr>
-<td class="label-cell"><%= link_to 'Assigned Pokémon', "/trainers/#{trainer.id}/pokemons" %>:</td>
+              <td class="label-cell"><%= link_to 'Assigned Pokémon', "/trainers/#{trainer.id}/pokemons" %>:</td>
               <td>
                 <% trainer.pokemons.each do |pokemon| %>
                   <%= pokemon.name %><br>
@@ -85,13 +85,6 @@
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="submit" value="Delete" class="small_button mouseover-button delete-button" />
                   </form>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2" style="text-align: center;">
-                <div class="button-group">
-                  <a href="<%= assigned_trainer_pokemons_path(trainer_id: trainer.id) %>" class="small_button mouseover-button">View Pokemons</a>
                 </div>
               </td>
             </tr>
