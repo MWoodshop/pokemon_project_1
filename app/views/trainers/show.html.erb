@@ -55,6 +55,14 @@
             <td><%= @trainer.gym_leader %></td>
           </tr>
           <tr>
+            <td class="label-cell">Assigned Pokémon:</td>
+            <td>
+              <% @trainer.pokemons.each do |pokemon| %>
+                <%= pokemon.name %><br>
+                <% end %>
+              </td>
+            </tr>
+          <tr>
             <td class="label-cell">Created At:</td>
             <td><%= @trainer.created_at %></td>
           </tr>
