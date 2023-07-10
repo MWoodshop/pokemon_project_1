@@ -51,7 +51,7 @@ Then I see the pokemon with that id including the pokemon's attributes
 ```
 
 ```
-[ ] done
+[✓] done
 
 User Story 5, trainer pokemon Index
 
