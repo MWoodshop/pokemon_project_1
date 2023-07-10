@@ -1,0 +1,15 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <a href="/trainers">Trainer Index</a>
+    <h1><%= @trainer.name %></h1>
+    <p>Region: <%= @trainer.region %></p>
+    <p>Generation Introduced: <%= @trainer.generation_introduced %></p>
+    <p>Gym Leader: <%= @trainer.gym_leader %></p>
+    <%= button_to "Edit", edit_trainer_path(@trainer), method: :get %>
+    <div style="text-align: center;">
+      <button onClick="window.location.href='/'" id="return_button">Return to Main Page</button>
+    </div>
+  </body>
+</html>

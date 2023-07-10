@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Trainer</title>
+  </head>
+  <body>
+    <div>
+      <img id = "logo" src = "https://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-png-2000.png">
+    </div>
+    <h1>Edit Trainer</h1>
+    <div class="container">
+      <%= form_with(model: @trainer, url: update_trainer_path(@trainer), method: :patch, html: { id: 'form_id' }) do |form| %>
+        <table>
+          <tr>
+            <td class="label-cell"><%= form.label :name, 'Name:' %></td>
+            <td><%= form.text_field :name, id: 'trainer_name' %></td>
+          </tr>
+          <tr>
+            <td class="label-cell"><%= form.label :region, 'Type:' %></td>
+            <td>
+              <%= form.select :region, options_for_select(['Kanto', 'Johto', 'Hoenn', 'Sinnoh', 'Unova', 'Kalos', 'Alola', 'Galar', 'Paldea']), {}, id: 'trainer_region', class: 'field-select' %>
+            </td>
+          </tr>
+          <tr>
+            <td class="label-cell"><%= form.label :generation_introduced, 'Generation Introduced:' %></td>
+            <td><%= form.number_field :height, id: 'trainer_generation_introduced' %></td>
+          </tr>
+          <tr>
+            <td class="label-cell"><%= form.label :gym_leader, 'Gym Leader:' %></td>
+            <td>
+              <div class="checkbox-cell">
+                <%= form.check_box :gym_leader, {}, 'true', 'false' %>
+              </div>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+    <br>
+    <div style="text-align: center;">
+      <button type="submit" form="form_id" id="small_button">Confirm</button>
+    </div>
+    <div style="text-align: center;">
+      <button onClick="window.location.href='/'" id="return_button">Return to Main Page</button>
+    </div>
+  </body>
+</html>

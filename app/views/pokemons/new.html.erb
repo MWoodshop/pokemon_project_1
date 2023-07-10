@@ -1,68 +1,69 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pokemon App</title>
+    <title>New Pokemon</title>
   </head>
-  <style>
-    .container {
-      display: flex;
-      justify-content: center;
-    }
-
-    #small_button {
-      margin: 0 auto;
-    }
-  </style>
   <body>
     <div>
       <img id = "logo" src = "https://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-png-2000.png">
     </div>
-    <h1>Add a New Pok&eacute;mon</h1>
-    <div class="container">
-      <form action="<%= create_pokemon_path %>" method="post">
-        <table>
-          <tr>
-            <td class="label-cell"><label for="pokemon_name">Name:</label></td>
-            <td><input type="text" name="pokemon[name]" id="pokemon_name"></td>
-          </tr>
-          <tr>
-            <td class="label-cell"><label for="pokemon_type">Type:</label></td>
-            <td>
-              <select name="pokemon[pokemon_type]" id="pokemon_type" class="field-select">
-                <option value="Electric">Electric</option>
-                <option value="Fire">Fire</option>
-                <option value="Grass">Grass</option>
-                <!-- Add more options for other Pokemon types -->
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td class="label-cell"><label for="pokemon_trainer">Trainer:</label></td>
-            <td><input type="text" name="pokemon[trainer]" id="pokemon_trainer"></td>
-          </tr>
-          <tr>
-            <td class="label-cell"><label for="pokemon_height">Height (inches):</label></td>
-            <td><input type="number" name="pokemon[height]" id="pokemon_height"></td>
-          </tr>
-          <tr>
-            <td class="label-cell"><label for="pokemon_weight">Weight (pounds):</label></td>
-            <td><input type="number" name="pokemon[weight]" id="pokemon_weight"></td>
-          </tr>
-          <tr>
-            <td class="label-cell"><label for="pokemon_can_evolve">Can Evolve:</label></td>
-            <td>
-              <select name="pokemon[can_evolve]" id="pokemon_can_evolve" class="field-select">
-                <option value="true">Yes</option>
-                <option value="false">No</option>
-              </select>
-            </td>
-          </tr>
-        </table>
-        <button type="submit" id="small_button">Add Pok&eacute;mon</button>
-      </form>
-    </div>
-    <div style="text-align: center;">
-      <button onClick="window.location.href='/'" id="return_button">Return to Main Page</button>
-    </div>
-  </body>
+    <h1>Create New Pokemon</h1>
+<form action="<%= create_pokemon_path %>" method="post">
+  <table>
+    <tr>
+      <td class="label-cell"><label for="pokemon_name">Name:</label></td>
+      <td><input type="text" name="pokemon[name]" id="pokemon_name"></td>
+    </tr>
+    <tr>
+      <td class="label-cell"><label for="pokemon_type">Type:</label></td>
+      <td>
+        <select name="pokemon[pokemon_type]" id="pokemon_type" class="field-select">
+          <option value="Normal">Normal</option>
+          <option value="Fire">Fire</option>
+          <option value="Fighting">Fighting</option>
+          <option value="Water">Water</option>
+          <option value="Flying">Flying</option>
+          <option value="Grass">Grass</option>
+          <option value="Poison">Poison</option>
+          <option value="Electric">Electric</option>
+          <option value="Ground">Ground</option>
+          <option value="Psychic">Psychic</option>
+          <option value="Rock">Rock</option>
+          <option value="Ice">Ice</option>
+          <option value="Bug">Bug</option>
+          <option value="Dragon">Dragon</option>
+          <option value="Ghost">Ghost</option>
+          <option value="Dark">Dark</option>
+          <option value="Steel">Steel</option>
+          <option value="Fairy">Fairy</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td class="label-cell"><label for="pokemon_trainer">Trainer:</label></td>
+      <td>
+        <%= collection_select(:pokemon, :trainer_id, Trainer.all, :id, :name, { prompt: "Select a Trainer" }, { class: "field-select" }) %>
+      </td>
+    </tr>
+    <tr>
+      <td class="label-cell"><label for="pokemon_height">Height (inches):</label></td>
+      <td><input type="number" name="pokemon[height]" id="pokemon_height"></td>
+    </tr>
+    <tr>
+      <td class="label-cell"><label for="pokemon_weight">Weight (pounds):</label></td>
+      <td><input type="number" name="pokemon[weight]" id="pokemon_weight"></td>
+    </tr>
+    <tr>
+      <td class="label-cell"><label for="pokemon_can_evolve">Can Evolve:</label></td>
+      <td>
+        <select name="pokemon[can_evolve]" id="pokemon_can_evolve" class="field-select">
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <button type="submit" id="small_button">Add Pokémon</button>
+</form>
+</body>
 </html>

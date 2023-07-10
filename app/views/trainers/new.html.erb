@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add New Trainer</title>
+  </head>
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+
+    #small_button {
+      margin: 0 auto;
+    }
+  </style>
+  <body>
+    <div>
+      <img id = "logo" src = "https://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-png-2000.png">
+    </div>
+    <h1>Add a Trainer</h1>
+    <div class="container">
+      <form action="<%= create_trainer_path %>" method="post">
+        <table>
+          <tr>
+            <td class="label-cell"><label for="trainer_name">Name:</label></td>
+            <td><input type="text" name="trainer[name]" id="trainer_name"></td>
+          </tr>
+          <tr>
+            <td class="label-cell"><label for="trainer_region">Region:</label></td>
+            <td>
+              <select name="trainer[region]" id="trainer_region" class="field-select">
+                <option value="Kanto">Kanto</option>
+                <option value="Johto">Johto</option>
+                <option value="Hoenn">Hoenn</option>
+                <option value="Sinnoh">Sinnoh</option>
+                <option value="Unova">Unova</option>
+                <option value="Kalos">Kalos</option>
+                <option value="Alola">Alola</option>
+                <option value="Galar">Galar</option>
+                <option value="Paldea">Paldea</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td class="label-cell"><label for="trainer_generation_introduced">Trainer Generation Introduced:</label></td>
+            <td><input type="number" name="trainer[generation_introduced]" id="trainer_generation_introduced"></td>
+          </tr>
+          <tr>
+            <td class="label-cell"><label for="trainer_gym_leader">Gym Leader:</label></td>
+            <td>
+              <select name="trainer[gym_leader]" id="trainer_gym_leader" class="field-select">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+        <button type="submit" id="small_button">Add Trainer</button>
+      </form>
+    </div>
+    <div style="text-align: center;">
+      <button onClick="window.location.href='/'" id="return_button">Return to Main Page</button>
+    </div>
+  </body>
+</html>

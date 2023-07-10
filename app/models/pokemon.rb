@@ -1,4 +1,6 @@
 class Pokemon < ApplicationRecord
+  belongs_to :trainer
+
   validates :name, presence: true
   validates :pokemon_type, presence: true
   validates :trainer, presence: true

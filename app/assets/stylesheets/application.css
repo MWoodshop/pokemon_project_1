@@ -76,9 +76,10 @@ body {
   border-radius: 50%;
   overflow: hidden;
   box-shadow: inset -10px 10px 0 10px #ccc;
-  animation: fall .25s ease-in-out,
-             shake 1.25s cubic-bezier(.36,.07,.19,.97) 3;
+  animation: fall 1s ease-in-out forwards, /* Adjust the duration as needed */
+             shake 1.25s cubic-bezier(.36, .07, .19, .97) 3;
 }
+
 .pokeball::before,
 .pokeball::after {
   content:"";
@@ -114,18 +115,30 @@ body {
   to { background: #e74c3c; }
 }
 @keyframes shake {
-  0 { transform: translate(0, 0) rotate(0); }
-  20% { transform: translate(-10px, 0) rotate(-20deg); }
-  30% { transform: translate(10px, 0) rotate(20deg); }
-  50% { transform: translate(-10px, 0) rotate(-10deg); }
-  60% { transform: translate(10px, 0) rotate(10deg); }
-  100% { transform: translate(0, 0) rotate(0); }
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+  20% {
+    transform: translate(-10px, 0) rotate(-20deg);
+  }
+  30% {
+    transform: translate(10px, 0) rotate(20deg);
+  }
+  50% {
+    transform: translate(-10px, 0) rotate(-10deg);
+  }
+  60% {
+    transform: translate(10px, 0) rotate(10deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
 }
 @keyframes fall {
-  0% { top: -200px }
-  60% { top: 0 }
-  80% { top: -20px }
-  100% { top: 0 }
+  0% { top: -400px; } /* Adjust the initial position of the container */
+  60% { top: 100px; } /* Adjust the fall distance and the position at 60% */
+  80% { top: 100px; } /* Adjust the position at 80% */
+  100% { top: 100px; } /* Adjust the final position */
 }
 
 body {

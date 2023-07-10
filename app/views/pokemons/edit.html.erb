@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pokemon App</title>
+    <title>Edit Poke&eacute;mon</title>
   </head>
   <body>
     <div>
@@ -18,12 +18,14 @@
           <tr>
             <td class="label-cell"><%= form.label :pokemon_type, 'Type:' %></td>
             <td>
-              <%= form.select :pokemon_type, options_for_select(['Electric', 'Fire', 'Grass']), {}, id: 'pokemon_type', class: 'field-select' %>
+              <%= form.select :region, options_for_select(['Normal', 'Fire', 'Fighting', 'Water', 'Flying', 'Grass', 'Poison', 'Electric', 'Ground', 'Psychic', 'Rock', 'Ice', 'Bug', 'Dragon', 'Ghost', 'Dark', 'Steel', 'Fairy']), {}, id: 'pokemon_type', class: 'field-select' %>
             </td>
           </tr>
           <tr>
-            <td class="label-cell"><%= form.label :trainer, 'Trainer:' %></td>
-            <td><%= form.text_field :trainer, id: 'pokemon_trainer' %></td>
+            <td class="label-cell"><label for="pokemon_trainer">Trainer:</label></td>
+            <td>
+              <%= collection_select(:pokemon, :trainer_id, Trainer.all, :id, :name, { prompt: "Select a Trainer" }, { class: "field-select" }) %>
+            </td>
           </tr>
           <tr>
             <td class="label-cell"><%= form.label :height, 'Height (inches):' %></td>

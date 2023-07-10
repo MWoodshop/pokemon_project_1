@@ -13,4 +13,12 @@ Rails.application.routes.draw do
   get '/pokemons/:id/edit', to: 'pokemons#edit', as: 'edit_pokemon'
   patch '/pokemons/:id', to: 'pokemons#update', as: 'update_pokemon'
   delete '/pokemons/:id', to: 'pokemons#destroy', as: 'destroy_pokemon'
+
+  get '/trainers', to: 'trainers#index', as: 'trainers'
+  get '/trainers/new', to: 'trainers#new', as: 'new_trainer'
+  post '/trainers', to: 'trainers#create', as: 'create_trainer'
+  get '/trainers/:id', to: 'trainers#show', as: 'trainer'
+  get '/trainers/:id/edit', to: 'trainers#edit', as: 'edit_trainer'
+  patch '/trainers/:id', to: 'trainers#update', as: 'update_trainer'
+  delete '/trainers/:id', to: 'trainers#destroy', as: 'destroy_trainer'
 end
