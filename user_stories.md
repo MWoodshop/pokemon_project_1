@@ -29,7 +29,7 @@ Then I see the trainer with that id including the trainer's attributes
 ```
 
 ```
-[ ] done
+[✓] done
 
 User Story 3, pokemon Index
 
