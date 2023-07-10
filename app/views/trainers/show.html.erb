@@ -55,6 +55,14 @@
             <td><%= @trainer.gym_leader %></td>
           </tr>
           <tr>
+            <td class="label-cell">Created At:</td>
+            <td><%= @trainer.created_at %></td>
+          </tr>
+          <tr>
+            <td class="label-cell">Updated At:</td>
+            <td><%= @trainer.updated_at %></td>
+          </tr>
+          <tr>
             <td colspan="2" style="text-align: center;">
               <div class="button-group">
                 <a href="/trainers/<%= @trainer.id %>/edit" class="small_button mouseover-button">Edit</a>
