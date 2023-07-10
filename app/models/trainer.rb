@@ -5,4 +5,8 @@ class Trainer < ApplicationRecord
   validates :region, presence: true
   validates :generation_introduced, presence: true
   validates :gym_leader, inclusion: { in: [true, false] }
+
+  def assigned_pokemon_count
+    pokemons.count
+  end
 end
