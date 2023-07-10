@@ -81,7 +81,7 @@ User Story 7, trainer pokemon Count
 
 As a visitor
 When I visit a trainer's show page
-I see a count of the number of pokemonren associated with this trainer
+I see a count of the number of pokemon associated with this trainer
 ```
 
 ##### Usability
