@@ -33,7 +33,7 @@
     </div>
     <div class="navbar">
       <%= link_to 'Main Page', '/', id: 'return_button' %>
-      <%= link_to 'Pokémon', '/pokemons', id: 'return_button' %>
+      <%= link_to 'Pokemon', '/pokemons', id: 'return_button' %>
       <%= link_to 'Trainers', '/trainers', id: 'return_button' %>
     </div>
     <div class="pokemon-entries-container">
@@ -83,8 +83,8 @@
         <tr>
           <td colspan="2" style="text-align: center;">
             <div class="button-group">
-              <a href="/pokemons/<%= @pokemon.id %>/edit" class="small_button mouseover-button">Edit</a>
-              <form action="/pokemons/<%= @pokemon.id %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this Pokémon?');">
+              <a href="/pokemons/<%= @pokemon.id %>/edit" class="small_button mouseover-button">Edit Pokemon</a>
+              <form action="/pokemons/<%= @pokemon.id %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this Pokemon?');">
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                 <input type="hidden" name="_method" value="DELETE">
                 <input type="hidden" name="action" value="EDIT">

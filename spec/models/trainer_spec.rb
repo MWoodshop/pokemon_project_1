@@ -96,18 +96,18 @@ feature 'Trainer Index Page', type: :feature do
   end
 
   # User Story 8
-  scenario 'displays links to Welcome, Trainers, and Pokémon Index on Trainer Index page' do
+  scenario 'displays links to Welcome, Trainers, and Pokemon Index on Trainer Index page' do
     visit trainers_path
 
     expect(page).to have_selector('.navbar a', text: 'Main Page')
-    expect(page).to have_selector('.navbar a', text: 'Pokémon')
+    expect(page).to have_selector('.navbar a', text: 'Pokemon')
     expect(page).to have_selector('.navbar a', text: 'Trainers')
 
     click_link 'Main Page'
     expect(current_path).to eq('/')
 
     # User Story 8
-    click_link 'Pokémon'
+    click_link 'Pokemon'
     expect(current_path).to eq('/pokemons')
 
     # User Story 9
@@ -115,17 +115,17 @@ feature 'Trainer Index Page', type: :feature do
     expect(current_path).to eq('/trainers')
   end
 
-  scenario 'displays links to Welcome, Trainers, and Pokémon Index on Trainer Edit page' do
+  scenario 'displays links to Welcome, Trainers, and Pokemon Index on Trainer Edit page' do
     visit trainers_path
 
     expect(page).to have_selector('.navbar a', text: 'Main Page')
-    expect(page).to have_selector('.navbar a', text: 'Pokémon')
+    expect(page).to have_selector('.navbar a', text: 'Pokemon')
     expect(page).to have_selector('.navbar a', text: 'Trainers')
 
     click_link 'Main Page'
     expect(current_path).to eq('/')
 
-    click_link 'Pokémon'
+    click_link 'Pokemon'
     expect(current_path).to eq('/pokemons')
 
     click_link 'Trainers'
@@ -136,8 +136,8 @@ feature 'Trainer Index Page', type: :feature do
   scenario 'displays link to trainers pokemon page from trainers show page' do
     visit trainer_path(@trainer1)
 
-    expect(page).to have_link('Assigned Pokémon')
-    click_link 'Assigned Pokémon'
+    expect(page).to have_link('Assigned Pokemon')
+    click_link 'Assigned Pokemon'
     expect(current_path).to eq(assigned_trainer_pokemons_path(@trainer1))
   end
 
@@ -160,5 +160,12 @@ feature 'Trainer Index Page', type: :feature do
     expect(page).to have_content('Galar')
     expect(page).to have_content(2)
     expect(page).to have_content('false')
+  end
+
+  # User Story 12
+  scenario 'on trainer index page, see link to edit trainer, click link, and be taken to edit trainer form, fill out form and redirect to trainer index page to see trainer updated' do
+    visit trainer_path(@trainer1)
+    expect(page).to have_link('Edit Trainer')
+    click_link('Edit Trainer')
   end
 end

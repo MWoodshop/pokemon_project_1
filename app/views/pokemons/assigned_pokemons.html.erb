@@ -36,11 +36,11 @@
     </div>
     <div class="navbar">
       <%= link_to 'Main Page', '/', id: 'return_button' %>
-      <%= link_to 'Pokémon', '/pokemons', id: 'return_button' %>
+      <%= link_to 'Pokemon', '/pokemons', id: 'return_button' %>
       <%= link_to 'Trainers', '/trainers', id: 'return_button' %>
     </div>
-    <h1>Assigned Pokémon for <%= @trainer.name %></h1>
-    <h3>Total Assigned Pokémon: <%= @trainer.pokemons.count %></h3>
+    <h1>Assigned Pokemon for <%= @trainer.name %></h1>
+    <h3>Total Assigned Pokemon: <%= @trainer.pokemons.count %></h3>
     <div class="pokemon-entries-container">
       <% @trainer.pokemons.each do |pokemon| %>
         <table class="pokemon-table">
