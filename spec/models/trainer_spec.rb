@@ -30,6 +30,11 @@ feature 'Trainer Index Page', type: :feature do
     @trainer2 = Trainer.create(id: 2, name: 'Misty', region: 'Kanto', generation_introduced: 1, gym_leader: false)
     @trainer3 = Trainer.create(id: 3, name: 'Brock', region: 'Kanto', generation_introduced: 1, gym_leader: false)
 
+    # Set custom creation timestamps
+    @trainer1.update(created_at: Time.zone.parse('2023-07-11 01:48:13 UTC'))
+    @trainer2.update(created_at: Time.zone.parse('2023-07-11 01:48:14 UTC'))
+    @trainer3.update(created_at: Time.zone.parse('2023-07-11 01:48:15 UTC'))
+
     @pokemon1 = Pokemon.create(name: 'Pikachu', pokemon_type: 'Electric', height: 1, weight: 13, can_evolve: true,
                                trainer_id: @trainer1.id)
     @pokemon2 = Pokemon.create(name: 'Squirtle', pokemon_type: 'Water', height: 1, weight: 13, can_evolve: true,
@@ -55,8 +60,8 @@ feature 'Trainer Index Page', type: :feature do
     expect(page).to have_content(@trainer1.generation_introduced)
     expect(page).to have_content(@trainer1.gym_leader)
     expect(page).to have_content(@trainer1.assigned_pokemon_count)
-    expect(page).to have_content(@trainer1.created_at)
-    expect(page).to have_content(@trainer1.updated_at)
+    expect(page).to have_content(@trainer1.created_at.strftime('%Y-%m-%d %H:%M:%S'))
+    expect(page).to have_content(@trainer1.updated_at.strftime('%Y-%m-%d %H:%M:%S'))
   end
 
   # User Story 5
@@ -70,5 +75,15 @@ feature 'Trainer Index Page', type: :feature do
     expect(page).to have_content(@pokemon1.can_evolve)
     expect(page).to have_content(@pokemon1.created_at)
     expect(page).to have_content(@pokemon1.updated_at)
+  end
+
+  scenario 'trainer index sorted by most recently created' do
+    visit trainers_path
+
+    trainer_names = page.all('.trainer-entry b').map(&:text)
+    trainer3_index = trainer_names.index(@trainer3.name)
+    trainer2_index = trainer_names.index(@trainer2.name)
+
+    expect(trainer3_index).to be < trainer2_index
   end
 end
