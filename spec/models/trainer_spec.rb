@@ -153,7 +153,7 @@ feature 'Trainer Index Page', type: :feature do
     fill_in 'trainer_name', with: 'Jessie'
     select 'Galar', from: 'trainer_region'
     fill_in 'trainer_generation_introduced', with: 2
-    select 'No', from: 'trainer_gym_leader'
+    select 'false', from: 'trainer_gym_leader'
     click_button 'small_button'
     expect(current_path).to eq('/trainers')
     expect(page).to have_content('Jessie')

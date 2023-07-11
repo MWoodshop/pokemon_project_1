@@ -62,14 +62,8 @@
             <td><%= @trainer.generation_introduced %></td>
           </tr>
           <tr>
-            <td class="label-cell">Is Gym Leader:</td>
-            <td>
-              <% if @trainer.gym_leader %>
-                Yes
-              <% else %>
-                No
-              <% end %>
-            </td>
+            <td class="label-cell">Gym Leader:</td>
+            <td><%= @trainer.gym_leader %></td>
           </tr>
           <tr>
             <td class="label-cell"><%= link_to 'Assigned Pokémon', "/trainers/#{@trainer.id}/pokemons" %>:</td>

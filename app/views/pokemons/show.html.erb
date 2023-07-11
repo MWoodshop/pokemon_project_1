@@ -69,33 +69,28 @@
           </tr>
           <tr>
             <td class="label-cell">Can Evolve:</td>
-            <td>
-              <% if @pokemon.can_evolve %>
-                Yes
-              <% else %>
-                No
-              <% end %>
-            </td>
+            <td><%= @pokemon.can_evolve %></td>
           </tr>
-          <tr>
-            <td class="label-cell">Created At:</td>
-            <td><%= @pokemon.created_at %></td>
-          </tr>
-          <tr>
-            <td class="label-cell">Updated At:</td>
-            <td><%= @pokemon.updated_at %></td>
-          </tr>
-          <tr>
-            <td colspan="2" style="text-align: center;">
-              <div class="button-group">
-                <a href="/pokemons/<%= @pokemon.id %>/edit" class="small_button mouseover-button">Edit</a>
-                <form action="/pokemons/<%= @pokemon.id %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this Pokémon?');">
-                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                  <input type="hidden" name="_method" value="DELETE">
-                  <input type="hidden" name="action" value="EDIT">
-                  <input type="submit" value="Delete" class="small_button mouseover-button delete-button"/>
-                </form>
-              </div>
-            </table>
-          </body>
-        </html>
+        </tr>
+        <tr>
+          <td class="label-cell">Created At:</td>
+          <td><%= @pokemon.created_at %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">Updated At:</td>
+          <td><%= @pokemon.updated_at %></td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <div class="button-group">
+              <a href="/pokemons/<%= @pokemon.id %>/edit" class="small_button mouseover-button">Edit</a>
+              <form action="/pokemons/<%= @pokemon.id %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this Pokémon?');">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="action" value="EDIT">
+                <input type="submit" value="Delete" class="small_button mouseover-button delete-button"/>
+              </form>
+            </div>
+          </table>
+        </body>
+      </html>
