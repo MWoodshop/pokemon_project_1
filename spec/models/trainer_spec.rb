@@ -58,4 +58,17 @@ feature 'Trainer Index Page', type: :feature do
     expect(page).to have_content(@trainer1.created_at)
     expect(page).to have_content(@trainer1.updated_at)
   end
+
+  # User Story 5
+  scenario 'displays each pokemon assigned to a trainer and all of the pokemons attributes' do
+    visit assigned_trainer_pokemons_path(@trainer1)
+
+    expect(page).to have_content(@pokemon1.name)
+    expect(page).to have_content(@pokemon1.pokemon_type)
+    expect(page).to have_content(@pokemon1.height)
+    expect(page).to have_content(@pokemon1.weight)
+    expect(page).to have_content(@pokemon1.can_evolve)
+    expect(page).to have_content(@pokemon1.created_at)
+    expect(page).to have_content(@pokemon1.updated_at)
+  end
 end
