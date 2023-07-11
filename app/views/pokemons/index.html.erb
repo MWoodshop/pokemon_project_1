@@ -73,7 +73,13 @@
                 </tr>
                 <tr>
                   <td class="label-cell">Can Evolve:</td>
-                  <td><%= pokemon.can_evolve %></td>
+                  <td>
+                    <% if pokemon.can_evolve %>
+                      Yes
+                    <% else %>
+                      No
+                    <% end %>
+                  </td>
                 </tr>
                 <tr>
                   <td class="label-cell">Created At:</td>

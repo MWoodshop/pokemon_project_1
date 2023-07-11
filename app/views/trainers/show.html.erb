@@ -36,12 +36,12 @@
       <%= link_to 'Pokémon', '/pokemons', id: 'return_button' %>
       <%= link_to 'Trainers', '/trainers', id: 'return_button' %>
     </div>
-<tr><h2>
-  <td class="label-cell">Assigned Pokémon:</td>
-  <td><%= @trainer.assigned_pokemon_count %></td></h2>
-</tr>
-
-
+    <tr>
+      <h2>
+        <td class="label-cell">Assigned Pokémon:</td>
+        <td><%= @trainer.assigned_pokemon_count %></td>
+      </h2>
+    </tr>
     <div class="pokemon-entries-container">
       <table>
         <table>
@@ -62,14 +62,20 @@
             <td><%= @trainer.generation_introduced %></td>
           </tr>
           <tr>
-            <td class="label-cell">Gym Leader:</td>
-            <td><%= @trainer.gym_leader %></td>
+            <td class="label-cell">Is Gym Leader:</td>
+            <td>
+              <% if @trainer.gym_leader %>
+                Yes
+              <% else %>
+                No
+              <% end %>
+            </td>
           </tr>
           <tr>
             <td class="label-cell"><%= link_to 'Assigned Pokémon', "/trainers/#{@trainer.id}/pokemons" %>:</td>
             <td>
               <% @trainer.pokemons.each do |pokemon| %>
-              <%= pokemon.name %><br>
+                <%= pokemon.name %><br>
               <% end %>
             </td>
           </tr>
