@@ -87,7 +87,7 @@ I see a count of the number of pokemon associated with this trainer
 ##### Usability
 
 ```
-[ ] done
+[✓] done
 
 User Story 8, pokemon Index Link
 
@@ -97,7 +97,7 @@ Then I see a link at the top of the page that takes me to the pokemon Index
 ```
 
 ```
-[ ] done
+[✓] done
 
 User Story 9, trainer Index Link
 
@@ -107,7 +107,7 @@ Then I see a link at the top of the page that takes me to the trainer Index
 ```
 
 ```
-[ ] done
+[✓] done
 
 User Story 10, trainer pokemon Index Link
 

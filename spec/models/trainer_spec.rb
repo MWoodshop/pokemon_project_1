@@ -106,9 +106,11 @@ feature 'Trainer Index Page', type: :feature do
     click_link 'Main Page'
     expect(current_path).to eq('/')
 
+    # User Story 8
     click_link 'Pokémon'
     expect(current_path).to eq('/pokemons')
 
+    # User Story 9
     click_link 'Trainers'
     expect(current_path).to eq('/trainers')
   end
@@ -128,5 +130,14 @@ feature 'Trainer Index Page', type: :feature do
 
     click_link 'Trainers'
     expect(current_path).to eq('/trainers')
+  end
+
+  # User Story 10
+  scenario 'displays link to trainers pokemon page from trainers show page' do
+    visit trainer_path(@trainer1)
+
+    expect(page).to have_link('Assigned Pokémon')
+    click_link 'Assigned Pokémon'
+    expect(current_path).to eq(assigned_trainer_pokemons_path(@trainer1))
   end
 end
