@@ -77,6 +77,7 @@ feature 'Trainer Index Page', type: :feature do
     expect(page).to have_content(@pokemon1.updated_at)
   end
 
+  # User Story 6
   scenario 'trainer index sorted by most recently created' do
     visit trainers_path
 
@@ -85,5 +86,12 @@ feature 'Trainer Index Page', type: :feature do
     trainer2_index = trainer_names.index(@trainer2.name)
 
     expect(trainer3_index).to be < trainer2_index
+  end
+
+  # User Story 7
+  scenario 'trainer show page shows count of assigned pokemon' do
+    visit trainer_path(@trainer1)
+
+    expect(page).to have_content(@trainer1.assigned_pokemon_count)
   end
 end

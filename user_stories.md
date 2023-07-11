@@ -64,7 +64,7 @@ Then I see each pokemon that is associated with that trainer with each pokemon's
 ##### ActiveRecord
 
 ```
-[ ] done
+[✓] done
 
 User Story 6, trainer Index sorted by Most Recently Created
 
@@ -75,7 +75,7 @@ And next to each of the records I see when it was created
 ```
 
 ```
-[ ] done
+[✓] done
 
 User Story 7, trainer pokemon Count
 
