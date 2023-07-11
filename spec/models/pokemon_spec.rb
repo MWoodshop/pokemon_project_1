@@ -41,10 +41,25 @@ feature 'Pokemon Index Page', type: :feature do
   # User Story 3
   scenario 'displays pokemon attributes on the /pokemons page' do
     visit pokemons_path
+
     expect(page).to have_content(@pokemon1.name)
     expect(page).to have_content(@pokemon2.name)
     expect(page).to have_content(@pokemon3.name)
 
+    expect(page).to have_content(@pokemon1.pokemon_type)
+    expect(page).to have_content(@pokemon1.height)
+    expect(page).to have_content(@pokemon1.weight)
+    expect(page).to have_content(@pokemon1.can_evolve)
+    expect(page).to have_content(@pokemon1.trainer_id)
+    expect(page).to have_content(@pokemon1.created_at)
+    expect(page).to have_content(@pokemon1.updated_at)
+  end
+
+  # User Story 4
+  scenario 'displays pokemon attributes on the /pokemons/:id page' do
+    visit pokemon_path(@pokemon1)
+
+    expect(page).to have_content(@pokemon1.name)
     expect(page).to have_content(@pokemon1.pokemon_type)
     expect(page).to have_content(@pokemon1.height)
     expect(page).to have_content(@pokemon1.weight)
