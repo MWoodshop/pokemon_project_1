@@ -38,10 +38,17 @@ feature 'Pokemon Index Page', type: :feature do
                                trainer_id: @trainer3.id)
   end
 
-  scenario 'displays all trainers on the /trainers page' do
+  # User Story 3
+  scenario 'displays pokemon attributes on the /pokemons page' do
     visit pokemons_path
     expect(page).to have_content(@pokemon1.name)
-    expect(page).to have_content(@trainer2.name)
-    expect(page).to have_content(@trainer3.name)
+    expect(page).to have_content(@pokemon2.name)
+    expect(page).to have_content(@pokemon3.name)
+
+    expect(page).to have_content(@pokemon1.pokemon_type)
+    expect(page).to have_content(@pokemon1.height)
+    expect(page).to have_content(@pokemon1.weight)
+    expect(page).to have_content(@pokemon1.can_evolve)
+    expect(page).to have_content(@pokemon1.trainer_id)
   end
 end
