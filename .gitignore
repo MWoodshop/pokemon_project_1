@@ -38,3 +38,4 @@
 /coverage
 .DS_Store
 .DS_Store
+spec/models/tempCodeRunnerFile.rb
