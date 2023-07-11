@@ -41,6 +41,8 @@
     </div>
     <h1>Assigned Pokemon for <%= @trainer.name %></h1>
     <h3>Total Assigned Pokemon: <%= @trainer.pokemons.count %></h3>
+    <a href="<%= new_trainer_pokemon_path(@trainer) %>" class="small_button mouseover-button">Add New Pokemon to Trainer</a><br>
+    <br>
     <div class="pokemon-entries-container">
       <% @trainer.pokemons.each do |pokemon| %>
         <table class="pokemon-table">

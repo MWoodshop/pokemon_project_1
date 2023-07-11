@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index', as: 'welcome'
 
   get '/trainers/:trainer_id/pokemons', to: 'pokemons#assigned_pokemons', as: 'assigned_trainer_pokemons'
+  get '/trainers/:trainer_id/pokemons/new', to: 'pokemons#new_for_trainer', as: 'new_trainer_pokemon'
+  post '/trainers/:trainer_id/pokemons', to: 'pokemons#create_for_trainer', as: 'create_trainer_pokemon'
 
   get '/pokemons', to: 'pokemons#index', as: 'pokemons'
   get '/pokemons/new', to: 'pokemons#new', as: 'new_pokemon'
