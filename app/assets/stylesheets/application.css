@@ -160,6 +160,7 @@ body {
   border-radius: 40px;
   box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
   cursor: pointer;
+  text-decoration: none;
 }
 #big_button:hover {
   background: #003060;
@@ -169,6 +170,11 @@ body {
   box-shadow: none;
   cursor: pointer;
 }
+
+.bug_button a {
+  text-decoration: none;
+}
+
 #small_button {
   margin-top: 10px;
   line-height: 30px;
