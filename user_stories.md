@@ -157,7 +157,7 @@ and I am redirected to the trainer's Show page where I see the trainer's updated
 ```
 
 ```
-[ ] done
+[✓] done
 
 User Story 13, trainer pokemon Creation
 
