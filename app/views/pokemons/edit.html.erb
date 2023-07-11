@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pokemon App</title>
+    <title>Edit Poke&eacute;mon</title>
   </head>
   <body>
     <div>
       <img id = "logo" src = "https://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-png-2000.png">
+    <div class="navbar">
+      <%= link_to 'Main Page', '/', id: 'return_button' %>
+      <%= link_to 'Pokémon', '/pokemons', id: 'return_button' %>
+      <%= link_to 'Trainers', '/trainers', id: 'return_button' %>
     </div>
     <h1>Edit Pok&eacute;mon</h1>
     <div class="container">
@@ -16,14 +20,20 @@
             <td><%= form.text_field :name, id: 'pokemon_name' %></td>
           </tr>
           <tr>
+            <td class="label-cell">Pokemon ID:</td>
+            <td><%= @pokemon.id %></td>
+          </tr>
+          <tr>
             <td class="label-cell"><%= form.label :pokemon_type, 'Type:' %></td>
             <td>
-              <%= form.select :pokemon_type, options_for_select(['Electric', 'Fire', 'Grass']), {}, id: 'pokemon_type', class: 'field-select' %>
+              <%= form.select :pokemon_type, options_for_select(['Normal', 'Fire', 'Fighting', 'Water', 'Flying', 'Grass', 'Poison', 'Electric', 'Ground', 'Psychic', 'Rock', 'Ice', 'Bug', 'Dragon', 'Ghost', 'Dark', 'Steel', 'Fairy'], @pokemon.pokemon_type), {}, id: 'pokemon_type', class: 'field-select' %>
             </td>
           </tr>
           <tr>
-            <td class="label-cell"><%= form.label :trainer, 'Trainer:' %></td>
-            <td><%= form.text_field :trainer, id: 'pokemon_trainer' %></td>
+            <td class="label-cell"><label for="pokemon_trainer">Trainer:</label></td>
+            <td>
+              <%= collection_select(:pokemon, :trainer_id, Trainer.all, :id, :name, { prompt: "Select a Trainer" }, { class: "field-select" }) %>
+            </td>
           </tr>
           <tr>
             <td class="label-cell"><%= form.label :height, 'Height (inches):' %></td>
@@ -41,15 +51,20 @@
               </div>
             </td>
           </tr>
+          <tr>
+            <td class="label-cell">Created At:</td>
+            <td><%= @pokemon.created_at %></td>
+          </tr>
+          <tr>
+            <td class="label-cell">Updated At:</td>
+            <td><%= @pokemon.updated_at %></td>
+          </tr>
         </table>
       <% end %>
     </div>
     <br>
     <div style="text-align: center;">
       <button type="submit" form="form_id" id="small_button">Confirm</button>
-    </div>
-    <div style="text-align: center;">
-      <button onClick="window.location.href='/'" id="return_button">Return to Main Page</button>
     </div>
   </body>
 </html>
