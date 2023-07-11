@@ -73,10 +73,10 @@
             </tr>
             <tr>
               <td class="label-cell">Created At:</td>
-              <td><%= trainer.created_at %></td>
+              <td><%= trainer.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
             </tr>
             <td class="label-cell">Updated At:</td>
-            <td><%= trainer.updated_at %></td>
+            <td><%= trainer.updated_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
             </tr>
             <tr>
               <td colspan="2" style="text-align: center;">
