@@ -174,7 +174,7 @@ and I am redirected to the trainer pokemons Index page where I can see the new p
 ```
 
 ```
-[ ] done
+[✓] done
 
 User Story 14, pokemon Update
 
