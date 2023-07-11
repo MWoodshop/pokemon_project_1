@@ -417,6 +417,10 @@ tr:not(:last-child) {
   background-color: #ddd;
 }
 
+.navbar a {
+    text-decoration: none;
+}
+
 
 
 

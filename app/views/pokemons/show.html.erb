@@ -33,9 +33,9 @@ text-decoration: none;
       <img id = "logo" src = "https://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-png-2000.png">
     </div>
     <div class="navbar">
-      <button onClick="window.location.href='/'" id="return_button">Main Page</button>
-      <button onClick="window.location.href='/pokemons'" id="return_button">Pokémon</button>
-      <button onClick="window.location.href='/trainers'" id="return_button">Trainers</button>
+      <%= link_to 'Main Page', '/', id: 'return_button' %>
+      <%= link_to 'Pokémon', '/pokemons', id: 'return_button' %>
+      <%= link_to 'Trainers', '/trainers', id: 'return_button' %>
     </div>
     <div class="pokemon-entries-container">
       <table>

@@ -94,4 +94,39 @@ feature 'Trainer Index Page', type: :feature do
 
     expect(page).to have_content(@trainer1.assigned_pokemon_count)
   end
+
+  # User Story 8
+  scenario 'displays links to Welcome, Trainers, and Pokémon Index on Trainer Index page' do
+    visit trainers_path
+
+    expect(page).to have_selector('.navbar a', text: 'Main Page')
+    expect(page).to have_selector('.navbar a', text: 'Pokémon')
+    expect(page).to have_selector('.navbar a', text: 'Trainers')
+
+    click_link 'Main Page'
+    expect(current_path).to eq('/')
+
+    click_link 'Pokémon'
+    expect(current_path).to eq('/pokemons')
+
+    click_link 'Trainers'
+    expect(current_path).to eq('/trainers')
+  end
+
+  scenario 'displays links to Welcome, Trainers, and Pokémon Index on Trainer Edit page' do
+    visit trainers_path
+
+    expect(page).to have_selector('.navbar a', text: 'Main Page')
+    expect(page).to have_selector('.navbar a', text: 'Pokémon')
+    expect(page).to have_selector('.navbar a', text: 'Trainers')
+
+    click_link 'Main Page'
+    expect(current_path).to eq('/')
+
+    click_link 'Pokémon'
+    expect(current_path).to eq('/pokemons')
+
+    click_link 'Trainers'
+    expect(current_path).to eq('/trainers')
+  end
 end

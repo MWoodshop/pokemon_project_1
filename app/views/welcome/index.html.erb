@@ -14,8 +14,8 @@
     text-transform: uppercase;
   }
 </style>
-<button onClick="window.location.href='/pokemons'" id="big_button">OPEN POK&eacute;DEX</button>
-<button onClick="window.location.href='/pokemons/new'" id="big_button">ADD NEW POK&eacute;MON</button>
-<br>
-<button onClick="window.location.href='/trainers'" id="big_button">OPEN TRAINER-DEX</button>
-<button onClick="window.location.href='/trainers/new'" id="big_button">ADD NEW TRAINER</button>
+    <div class="navbar">
+      <%= link_to 'Main Page', '/', id: 'big_button' %>
+      <%= link_to 'Pokémon', '/pokemons', id: 'big_button' %>
+      <%= link_to 'Trainers', '/trainers', id: 'big_button' %>
+    </div>
