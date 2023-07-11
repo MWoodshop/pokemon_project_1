@@ -93,4 +93,20 @@ feature 'Pokemon Index Page', type: :feature do
     expect(page).to have_content(13)
     expect(page).to have_content(true)
   end
+
+  # User Story 14
+  scenario 'allows user to edit a pokemon from pokemon show page then redirected to pokemon show page to see updated pokemon' do
+    visit pokemon_path(@pokemon1)
+    expect(page).to have_link('Edit Pokemon')
+    click_link 'Edit Pokemon'
+    expect(current_path).to eq(edit_pokemon_path(@pokemon1))
+    expect(page).to have_selector('form')
+    fill_in 'pokemon_name', with: 'Geodude'
+    select 'Rock', from: 'pokemon_type'
+    click_button 'Confirm'
+
+    expect(current_path).to eq(pokemon_path(@pokemon1))
+    expect(page).to have_content('Geodude')
+    expect(page).to have_content('Rock')
+  end
 end

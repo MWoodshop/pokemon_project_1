@@ -180,10 +180,10 @@ User Story 14, pokemon Update
 
 As a visitor
 When I visit a pokemon Show page
-Then I see a link to update that pokemon "Update pokemon"
+Then I see a link to update that pokemon "Edit pokemon"
 When I click the link
 I am taken to '/pokemons/:id/edit' where I see a form to edit the pokemon's attributes:
-When I click the button to submit the form "Update pokemon"
+When I click the button to submit the form "Edit pokemon"
 Then a `PATCH` request is sent to '/pokemons/:id',
 the pokemon's data is updated,
 and I am redirected to the pokemon Show page where I see the pokemon's updated information
