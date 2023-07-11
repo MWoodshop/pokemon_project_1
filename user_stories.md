@@ -123,7 +123,7 @@ Then I see a link to take me to that trainer's `pokemon` page ('/trainers/:id/po
 ##### CRUD
 
 ```
-[ ] done
+[✓] done
 
 User Story 11, trainer Creation
 
