@@ -56,14 +56,12 @@
         <tr>
           <td class="label-cell"><label for="pokemon_can_evolve">Can Evolve:</label></td>
           <td>
-            <select name="pokemon[can_evolve]" id="pokemon_can_evolve" class="field-select">
-              <option value="true">true</option>
-              <option value="false">false</option>
-            </select>
+            <input type="hidden" name="pokemon[can_evolve]" value="0">
+            <input type="checkbox" name="pokemon[can_evolve]" id="pokemon_can_evolve" value="1">
           </td>
         </tr>
       </table>
       <button type="submit" id="small_button">Add Pokemon</button>
-    <% end %> <!-- Closing form_with block -->
+    <% end %>
   </body>
 </html>

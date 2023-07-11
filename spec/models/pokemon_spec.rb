@@ -68,4 +68,29 @@ feature 'Pokemon Index Page', type: :feature do
     expect(page).to have_content(@pokemon1.created_at)
     expect(page).to have_content(@pokemon1.updated_at)
   end
+
+  # User Story 13
+  scenario 'allows user to create a new pokemon from the /trainer/:id/pokemons/new page then redirected to pokemons index to see new pokemon' do
+    visit trainer_path(@trainer1)
+    expect(page).to have_link('Assigned Pokemon')
+    click_link 'Assigned Pokemon'
+    expect(current_path).to eq(assigned_trainer_pokemons_path(@trainer1))
+    expect(page).to have_link('Add New Pokemon to Trainer')
+    click_link 'Add New Pokemon to Trainer'
+
+    expect(page).to have_selector('form')
+    fill_in 'pokemon_name', with: 'Pikachu'
+    select 'Electric', from: 'pokemon_type'
+    fill_in 'pokemon_height', with: 1
+    fill_in 'pokemon_weight', with: 13
+    check 'pokemon_can_evolve'
+    click_button 'Add Pokemon'
+
+    expect(current_path).to eq(assigned_trainer_pokemons_path(@trainer1))
+    expect(page).to have_content('Pikachu')
+    expect(page).to have_content('Electric')
+    expect(page).to have_content(1)
+    expect(page).to have_content(13)
+    expect(page).to have_content(true)
+  end
 end

@@ -59,12 +59,10 @@
           <td><input type="number" name="pokemon[weight]" id="pokemon_weight"></td>
         </tr>
         <tr>
-          <td class="label-cell"><label for="pokemon_can_evolve">Can Evolve:</label></td>
+          <td class="label-cell"><label for="trainer_gym_leader">Gym Leader:</label></td>
           <td>
-            <select name="pokemon[can_evolve]" id="pokemon_can_evolve" class="field-select">
-              <option value="true">true</option>
-              <option value="false">false</option>
-            </select>
+            <input type="hidden" name="trainer[gym_leader]" value="0">
+            <input type="checkbox" name="trainer[gym_leader]" id="trainer_gym_leader" value="1">
           </td>
         </tr>
       </table>

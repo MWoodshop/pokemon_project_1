@@ -43,7 +43,7 @@ class PokemonsController < ApplicationController
     @trainer = Trainer.find(params[:trainer_id])
     @pokemon = @trainer.pokemons.build(pokemon_params)
     if @pokemon.save
-      redirect_to trainer_path(@trainer), notice: 'Pokemon was successfully created.'
+      redirect_to assigned_trainer_pokemons_path(@trainer), notice: 'Pokemon was successfully created.'
     else
       render :new_for_trainer
     end
