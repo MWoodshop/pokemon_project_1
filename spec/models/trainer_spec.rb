@@ -154,7 +154,7 @@ feature 'Trainer Index Page', type: :feature do
     select 'Galar', from: 'trainer_region'
     fill_in 'trainer_generation_introduced', with: 2
     select 'false', from: 'trainer_gym_leader'
-    click_button 'small_button'
+    click_button 'Add Trainer'
     expect(current_path).to eq('/trainers')
     expect(page).to have_content('Jessie')
     expect(page).to have_content('Galar')
@@ -167,5 +167,17 @@ feature 'Trainer Index Page', type: :feature do
     visit trainer_path(@trainer1)
     expect(page).to have_link('Edit Trainer')
     click_link('Edit Trainer')
+    expect(current_path).to eq(edit_trainer_path(@trainer1))
+    fill_in 'trainer_name', with: 'James'
+    select 'Kanto', from: 'trainer_region'
+    fill_in 'trainer_generation_introduced', with: 3
+    check 'trainer_gym_leader'
+    click_button 'Confirm'
+
+    expect(current_path).to eq(trainer_path(@trainer1))
+    expect(page).to have_content('James')
+    expect(page).to have_content('Kanto')
+    expect(page).to have_content(3)
+    expect(page).to have_content('true')
   end
 end

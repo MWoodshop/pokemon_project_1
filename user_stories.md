@@ -140,7 +140,7 @@ and I am redirected to the trainer Index page where I see the new trainer displa
 ```
 
 ```
-[ ] done
+[✓] done
 
 User Story 12, trainer Update
 
