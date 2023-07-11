@@ -45,4 +45,10 @@ feature 'Trainer Index Page', type: :feature do
     expect(page).to have_content(@trainer2.name)
     expect(page).to have_content(@trainer3.name)
   end
+
+  # User Story 2
+  scenario 'displays trainer by id' do
+    visit trainers_path(@trainer1)
+    expect(page).to have_content(@trainer1.name)
+  end
 end
