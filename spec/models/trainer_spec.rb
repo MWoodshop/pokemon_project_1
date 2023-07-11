@@ -140,4 +140,25 @@ feature 'Trainer Index Page', type: :feature do
     click_link 'Assigned Pokémon'
     expect(current_path).to eq(assigned_trainer_pokemons_path(@trainer1))
   end
+
+  # Iteration 2
+  # User Story 11
+  scenario 'on trainer index page, see link to new trainer, click link, and be taken to new trainer form, fill out form and redirect to trainer index page to see new trainer created' do
+    visit trainers_path
+    expect(page).to have_link('New Trainer')
+
+    click_link 'New Trainer'
+    expect(current_path).to eq('/trainers/new')
+    expect(page).to have_selector('form')
+    fill_in 'trainer_name', with: 'Jessie'
+    select 'Galar', from: 'trainer_region'
+    fill_in 'trainer_generation_introduced', with: 2
+    select 'No', from: 'trainer_gym_leader'
+    click_button 'small_button'
+    expect(current_path).to eq('/trainers')
+    expect(page).to have_content('Jessie')
+    expect(page).to have_content('Galar')
+    expect(page).to have_content(2)
+    expect(page).to have_content('false')
+  end
 end
