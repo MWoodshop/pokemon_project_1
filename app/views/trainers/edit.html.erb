@@ -9,7 +9,7 @@
     </div>
     <div class="navbar">
       <%= link_to 'Main Page', '/', id: 'return_button' %>
-      <%= link_to 'Pokemon', '/pokemons', id: 'return_button' %>
+      <%= link_to 'Pokémon', '/pokemons', id: 'return_button' %>
       <%= link_to 'Trainers', '/trainers', id: 'return_button' %>
     </div>
     <h1>Edit Trainer</h1>
@@ -43,7 +43,7 @@
             </td>
           </tr>
           <tr>
-            <td class="label-cell">Assigned Pokemon:</td>
+            <td class="label-cell">Assigned Pokémon:</td>
             <td>
               <% @trainer.pokemons.each do |pokemon| %>
                 <%= pokemon.name %><br>
@@ -61,5 +61,9 @@
         </table>
       <% end %>
     </div>
+<div style="text-align: center;">
+  <button type="submit" form="form_id" id="small_button">Confirm</button>
+</div>
+
   </body>
 </html>
