@@ -7,6 +7,11 @@
     <div>
       <img id = "logo" src = "https://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-png-2000.png">
     </div>
+    <div class="navbar">
+      <button onClick="window.location.href='/'" id="return_button">Main Page</button>
+      <button onClick="window.location.href='/pokemons'" id="return_button">Pokémon</button>
+      <button onClick="window.location.href='/trainers'" id="return_button">Trainers</button>
+    </div>
     <h1>Edit Trainer</h1>
     <div class="container">
       <%= form_with(model: @trainer, url: update_trainer_path(@trainer), method: :patch, html: { id: 'form_id' }) do |form| %>
@@ -55,13 +60,6 @@
           </tr>
         </table>
       <% end %>
-    </div>
-    <br>
-    <div style="text-align: center;">
-      <button type="submit" form="form_id" id="small_button">Confirm</button>
-    </div>
-    <div style="text-align: center;">
-      <button onClick="window.location.href='/'" id="return_button">Return to Main Page</button>
     </div>
   </body>
 </html>

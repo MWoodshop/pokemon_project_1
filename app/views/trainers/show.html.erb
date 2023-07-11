@@ -31,6 +31,11 @@
     <div>
       <img id = "logo" src = "https://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-png-2000.png">
     </div>
+    <div class="navbar">
+      <button onClick="window.location.href='/'" id="return_button">Main Page</button>
+      <button onClick="window.location.href='/pokemons'" id="return_button">Pokémon</button>
+      <button onClick="window.location.href='/trainers'" id="return_button">Trainers</button>
+    </div>
 <tr><h2>
   <td class="label-cell">Assigned Pokémon:</td>
   <td><%= @trainer.assigned_pokemon_count %></td></h2>
@@ -61,13 +66,13 @@
             <td><%= @trainer.gym_leader %></td>
           </tr>
           <tr>
-            <td class="label-cell">Assigned Pokémon:</td>
+            <td class="label-cell"><%= link_to 'Assigned Pokémon', "/trainers/#{@trainer.id}/pokemons" %>:</td>
             <td>
               <% @trainer.pokemons.each do |pokemon| %>
-                <%= pokemon.name %><br>
-                <% end %>
-              </td>
-            </tr>
+              <%= pokemon.name %><br>
+              <% end %>
+            </td>
+          </tr>
           <tr>
             <td class="label-cell">Created At:</td>
             <td><%= @trainer.created_at %></td>
@@ -88,11 +93,5 @@
                 </form>
               </div>
             </table>
-            <div style="text-align: center;">
-              <button onClick="window.location.href='/'" id="return_button">Return to Main Page</button>
-            </div>
-            <div style="text-align: center;">
-              <button onClick="window.location.href='/trainers'" id="return_button">Return to Trainer Index</button>
-            </div>
           </body>
         </html>

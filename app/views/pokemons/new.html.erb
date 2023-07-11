@@ -6,6 +6,11 @@
   <body>
     <div>
       <img id = "logo" src = "https://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-png-2000.png">
+    <div class="navbar">
+      <button onClick="window.location.href='/'" id="return_button">Main Page</button>
+      <button onClick="window.location.href='/pokemons'" id="return_button">Pokémon</button>
+      <button onClick="window.location.href='/trainers'" id="return_button">Trainers</button>
+</div>
     </div>
     <h1>Create New Pokemon</h1>
 <form action="<%= create_pokemon_path %>" method="post">
@@ -65,10 +70,5 @@
   </table>
   <button type="submit" id="small_button">Add Pokémon</button>
 </form>
-
-<div style="text-align: center;">
-  <button onClick="window.location.href='/'" id="return_button">Return to Main Page</button>
-</div>
-
 </body>
 </html>
