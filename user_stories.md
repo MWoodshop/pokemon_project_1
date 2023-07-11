@@ -123,7 +123,7 @@ Then I see a link to take me to that trainer's `pokemon` page ('/trainers/:id/po
 ##### CRUD
 
 ```
-[ ] done
+[✓] done
 
 User Story 11, trainer Creation
 
@@ -140,7 +140,7 @@ and I am redirected to the trainer Index page where I see the new trainer displa
 ```
 
 ```
-[ ] done
+[✓] done
 
 User Story 12, trainer Update
 
@@ -157,12 +157,12 @@ and I am redirected to the trainer's Show page where I see the trainer's updated
 ```
 
 ```
-[ ] done
+[✓] done
 
 User Story 13, trainer pokemon Creation
 
 As a visitor
-When I visit a trainer pokemonren Index page
+When I visit a trainer pokemon Index page
 Then I see a link to add a new adoptable pokemon for that trainer "Create pokemon"
 When I click the link
 I am taken to '/trainers/:trainer_id/pokemons/new' where I see a form to add a new adoptable pokemon
@@ -174,16 +174,16 @@ and I am redirected to the trainer pokemons Index page where I can see the new p
 ```
 
 ```
-[ ] done
+[✓] done
 
 User Story 14, pokemon Update
 
 As a visitor
 When I visit a pokemon Show page
-Then I see a link to update that pokemon "Update pokemon"
+Then I see a link to update that pokemon "Edit pokemon"
 When I click the link
 I am taken to '/pokemons/:id/edit' where I see a form to edit the pokemon's attributes:
-When I click the button to submit the form "Update pokemon"
+When I click the button to submit the form "Edit pokemon"
 Then a `PATCH` request is sent to '/pokemons/:id',
 the pokemon's data is updated,
 and I am redirected to the pokemon Show page where I see the pokemon's updated information
@@ -192,7 +192,7 @@ and I am redirected to the pokemon Show page where I see the pokemon's updated i
 ##### ActiveRecord
 
 ```
-[ ] done
+[✓] done
 
 User Story 15, pokemon Index only shows `true` Records
 
@@ -204,13 +204,13 @@ Then I only see records where the boolean column is `true`
 ```
 [ ] done
 
-User Story 16, Sort trainer's pokemonren in Alphabetical Order by name
+User Story 16, Sort trainer's pokemon in Alphabetical Order by name
 
 As a visitor
-When I visit the trainer's pokemonren Index Page
-Then I see a link to sort pokemonren in alphabetical order
+When I visit the trainer's pokemon Index Page
+Then I see a link to sort pokemon in alphabetical order
 When I click on the link
-I'm taken back to the trainer's pokemonren Index Page where I see all of the trainer's pokemonren in alphabetical order
+I'm taken back to the trainer's pokemon Index Page where I see all of the trainer's pokemon in alphabetical order
 ```
 
 ##### Usability
@@ -281,10 +281,10 @@ and I am redirected to the pokemon index page where I no longer see this pokemon
 User Story 21, Display Records Over a Given Threshold
 
 As a visitor
-When I visit the trainer's pokemonren Index Page
+When I visit the trainer's pokemon Index Page
 I see a form that allows me to input a number value
 When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
-Then I am brought back to the current index page with only the records that meet that threshold shown.
+Then I am brought back to the curt index page with only the records that meet that threshold shown.
 ```
 
 ##### Usability
@@ -320,13 +320,13 @@ I should be taken to the `pokemon` index page where I no longer see that pokemon
 ```
 [ ] done
 
-Extension 1: Sort trainers by Number of pokemonren
+Extension 1: Sort trainers by Number of pokemon
 
 As a visitor
 When I visit the trainers Index Page
 Then I see a link to sort trainers by the number of `pokemon` they have
 When I click on the link
-I'm taken back to the trainer Index Page where I see all of the trainers in order of their count of `pokemon` (highest to lowest) And, I see the number of pokemonren next to each trainer name
+I'm taken back to the trainer Index Page where I see all of the trainers in order of their count of `pokemon` (highest to lowest) And, I see the number of pokemon next to each trainer name
 ```
 
 ```
@@ -385,7 +385,7 @@ Then I see the pokemon with that id including the pokemon's attributes
 (data from each column that is on the pokemon table)
 [ ] done
 
-User Story 5, trainer pokemonren Index
+User Story 5, trainer pokemon Index
 
 As a visitor
 When I visit '/trainers/:trainer_id/pokemons'
@@ -406,7 +406,7 @@ User Story 7, trainer pokemon Count
 
 As a visitor
 When I visit a trainer's show page
-I see a count of the number of pokemonren associated with this trainer
+I see a count of the number of pokemon associated with this trainer
 Usability
 [ ] done
 
@@ -464,7 +464,7 @@ and I am redirected to the trainer's Show page where I see the trainer's updated
 User Story 13, trainer pokemon Creation
 
 As a visitor
-When I visit a trainer pokemonren Index page
+When I visit a trainer pokemon Index page
 Then I see a link to add a new adoptable pokemon for that trainer "Create pokemon"
 When I click the link
 I am taken to '/trainers/:trainer_id/pokemons/new' where I see a form to add a new adoptable pokemon
@@ -496,13 +496,13 @@ When I visit the pokemon index
 Then I only see records where the boolean column is `true`
 [ ] done
 
-User Story 16, Sort trainer's pokemonren in Alphabetical Order by name
+User Story 16, Sort trainer's pokemon in Alphabetical Order by name
 
 As a visitor
-When I visit the trainer's pokemonren Index Page
-Then I see a link to sort pokemonren in alphabetical order
+When I visit the trainer's pokemon Index Page
+Then I see a link to sort pokemon in alphabetical order
 When I click on the link
-I'm taken back to the trainer's pokemonren Index Page where I see all of the trainer's pokemonren in alphabetical order
+I'm taken back to the trainer's pokemon Index Page where I see all of the trainer's pokemon in alphabetical order
 Usability
 [ ] done
 
@@ -552,10 +552,10 @@ ActiveRecord
 User Story 21, Display Records Over a Given Threshold
 
 As a visitor
-When I visit the trainer's pokemonren Index Page
+When I visit the trainer's pokemon Index Page
 I see a form that allows me to input a number value
 When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
-Then I am brought back to the current index page with only the records that meet that threshold shown.
+Then I am brought back to the curt index page with only the records that meet that threshold shown.
 Usability
 [ ] done
 
@@ -578,13 +578,13 @@ I should be taken to the `pokemon` index page where I no longer see that pokemon
 Extensions
 [ ] done
 
-Extension 1: Sort trainers by Number of pokemonren
+Extension 1: Sort trainers by Number of pokemon
 
 As a visitor
 When I visit the trainers Index Page
 Then I see a link to sort trainers by the number of `pokemon` they have
 When I click on the link
-I'm taken back to the trainer Index Page where I see all of the trainers in order of their count of `pokemon` (highest to lowest) And, I see the number of pokemonren next to each trainer name
+I'm taken back to the trainer Index Page where I see all of the trainers in order of their count of `pokemon` (highest to lowest) And, I see the number of pokemon next to each trainer name
 [ ] done
 
 Extension 2: Search by name (exact match)

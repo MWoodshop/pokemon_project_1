@@ -1,78 +1,77 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Trainer-Dex</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <style>
-    .mouseover-button {
-      margin-top: 10px;
-      line-height: 30px;
-      font-weight: bold;
-      font-size: large;
-      color: black;
-      padding: 0 20px;
-      background: lightblue;
-      border: 3px solid #003060;
-      border-radius: 40px;
-      box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
-      text-decoration: none;
-    }
+  <head>
+    <title>Trainer-Dex</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <style>
+      .mouseover-button {
+        margin-top: 10px;
+        line-height: 30px;
+        font-weight: bold;
+        font-size: large;
+        color: black;
+        padding: 0 20px;
+        background: lightblue;
+        border: 3px solid #003060;
+        border-radius: 40px;
+        box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+        text-decoration: none;
+      }
 
-    .mouseover-button:hover {
-      background: #003060;
-      color: white;
-      position: relative;
-      top: 3px;
-      box-shadow: none;
-      text-decoration: none;
-    }
-  </style>
-</head>
-<body>
-<div>
-  <img id="logo"
+      .mouseover-button:hover {
+        background: #003060;
+        color: white;
+        position: relative;
+        top: 3px;
+        box-shadow: none;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img id="logo"
        src="https://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-png-2000.png"></div>
     <div class="navbar">
       <%= link_to 'Main Page', '/', id: 'return_button' %>
-      <%= link_to 'Pokémon', '/pokemons', id: 'return_button' %>
+      <%= link_to 'Pokemon', '/pokemons', id: 'return_button' %>
       <%= link_to 'Trainers', '/trainers', id: 'return_button' %>
     </div>
-<button onClick="window.location.href='/trainers/new'" id="big_button">ADD NEW TRAINER</button><br><br><br>
-
-<div class="trainer-entries-container">
-  <table>
-    <% @trainers.each do |trainer| %>
-      <tr>
-        <td colspan="2" class="trainer-entry">
-          <table>
-            <tr>
-              <td class="label-cell">Name:</td>
-              <td><b><a href="<%= trainer_path(trainer) %>"><%= trainer.name %></a></b></td>
-            </tr>
-            <tr>
-              <td class="label-cell">ID:</td>
-              <td><%= trainer.id %></td>
-            </tr>
-            <tr>
-              <td class="label-cell">Region:</td>
-              <td><%= trainer.region %></td>
-            </tr>
-            <tr>
-              <td class="label-cell">Generation Introduced:</td>
-              <td><%= trainer.generation_introduced %></td>
-            </tr>
-            <tr>
-              <td class="label-cell">Is Gym Leader:</td>
-              <td><%= trainer.gym_leader %></td>
-            </tr>
-            <tr>
-              <td class="label-cell"><%= link_to 'Assigned Pokémon', "/trainers/#{trainer.id}/pokemons" %>:</td>
-              <td>
-                <% trainer.pokemons.each do |pokemon| %>
-                  <%= pokemon.name %><br>
-                <% end %>
-              </td>
-            </tr>
+    <%= link_to 'New Trainer', '/trainers/new', id: 'big_button' %>
+    <div class="trainer-entries-container">
+      <table>
+        <% @trainers.each do |trainer| %>
+          <tr>
+            <td colspan="2" class="trainer-entry">
+              <table>
+                <tr>
+                  <td class="label-cell">Name:</td>
+                  <td><b><a href="<%= trainer_path(trainer) %>"><%= trainer.name %></a></b></td>
+                </tr>
+                <tr>
+                  <td class="label-cell">ID:</td>
+                  <td><%= trainer.id %></td>
+                </tr>
+                <tr>
+                  <td class="label-cell">Region:</td>
+                  <td><%= trainer.region %></td>
+                </tr>
+                <tr>
+                  <td class="label-cell">Generation Introduced:</td>
+                  <td><%= trainer.generation_introduced %></td>
+                </tr>
+                <tr>
+                  <td class="label-cell">Is Gym Leader:</td>
+                  <td><%= trainer.gym_leader %></td>
+                </tr>
+                <tr>
+                  <td class="label-cell"><%= link_to 'Assigned Pokemon', "/trainers/#{trainer.id}/pokemons" %>:</td>
+                  <td>
+                    <% trainer.pokemons.each do |pokemon| %>
+                      <%= pokemon.name %><br>
+                    <% end %>
+                  </td>
+                </tr>
               </td>
             </tr>
             <tr>
@@ -81,24 +80,24 @@
             </tr>
             <td class="label-cell">Updated At:</td>
             <td><%= trainer.updated_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
-            </tr>
-            <tr>
-              <td colspan="2" style="text-align: center;">
-                <div class="button-group">
-                  <a href="<%= edit_trainer_path(trainer) %>" class="small_button mouseover-button">Edit</a>
-                  <form action="<%= trainer_path(trainer) %>" method="POST">
-                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input type="submit" value="Delete" class="small_button mouseover-button delete-button" />
-                  </form>
-                </div>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    <% end %>
-  </table>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: center;">
+              <div class="button-group">
+                <a href="<%= edit_trainer_path(trainer) %>" class="small_button mouseover-button">Edit Trainer</a>
+                <form action="<%= trainer_path(trainer) %>" method="POST">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <input type="submit" value="Delete" class="small_button mouseover-button delete-button" />
+                </form>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  <% end %>
+</table>
 </div>
 </body>
 </html>

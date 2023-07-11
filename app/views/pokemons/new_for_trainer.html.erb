@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>New Pokemon</title>
+    <title>New Pokemon for Trainer <%= @trainer.name %></title>
   </head>
   <body>
     <div>
-      <img id = "logo" src = "https://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-png-2000.png">
-      <div class="navbar">
-        <%= link_to 'Main Page', '/', id: 'return_button' %>
-        <%= link_to 'Pokemon', '/pokemons', id: 'return_button' %>
-        <%= link_to 'Trainers', '/trainers', id: 'return_button' %>
-      </div>
+      <img id="logo" src="https://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-png-2000.png">
     </div>
-    <h1>Create New Pokemon</h1>
-    <form action="<%= create_pokemon_path %>" method="post">
+    <div class="navbar">
+      <%= link_to 'Main Page', '/', id: 'return_button' %>
+      <%= link_to 'Pokemon', '/pokemons', id: 'return_button' %>
+      <%= link_to 'Trainers', '/trainers', id: 'return_button' %>
+    </div>
+    <h1>Create New Pokemon for Trainer: <%= @trainer.name %></h1>
+    <%= form_with(model: [@trainer, @pokemon], url: create_trainer_pokemon_path(@trainer), local: true) do |form| %>
+      <%= form.hidden_field :trainer_id, value: @trainer.id %>
       <table>
         <tr>
           <td class="label-cell"><label for="pokemon_name">Name:</label></td>
@@ -45,12 +46,6 @@
           </td>
         </tr>
         <tr>
-          <td class="label-cell"><label for="pokemon_trainer">Trainer:</label></td>
-          <td>
-            <%= collection_select(:pokemon, :trainer_id, Trainer.all, :id, :name, { prompt: "Select a Trainer" }, { class: "field-select" }) %>
-          </td>
-        </tr>
-        <tr>
           <td class="label-cell"><label for="pokemon_height">Height (inches):</label></td>
           <td><input type="number" name="pokemon[height]" id="pokemon_height"></td>
         </tr>
@@ -59,14 +54,14 @@
           <td><input type="number" name="pokemon[weight]" id="pokemon_weight"></td>
         </tr>
         <tr>
-          <td class="label-cell"><label for="trainer_gym_leader">Gym Leader:</label></td>
+          <td class="label-cell"><label for="pokemon_can_evolve">Can Evolve:</label></td>
           <td>
-            <input type="hidden" name="trainer[gym_leader]" value="0">
-            <input type="checkbox" name="trainer[gym_leader]" id="trainer_gym_leader" value="1">
+            <input type="hidden" name="pokemon[can_evolve]" value="0">
+            <input type="checkbox" name="pokemon[can_evolve]" id="pokemon_can_evolve" value="1">
           </td>
         </tr>
       </table>
       <button type="submit" id="small_button">Add Pokemon</button>
-    </form>
+    <% end %>
   </body>
 </html>
