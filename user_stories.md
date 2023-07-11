@@ -192,7 +192,7 @@ and I am redirected to the pokemon Show page where I see the pokemon's updated i
 ##### ActiveRecord
 
 ```
-[ ] done
+[✓] done
 
 User Story 15, pokemon Index only shows `true` Records
 
