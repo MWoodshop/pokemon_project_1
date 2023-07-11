@@ -39,7 +39,7 @@ feature 'Trainer Index Page', type: :feature do
   end
 
   # User Story 1
-  scenario 'displays all trainers on the /trainers page' do
+  scenario 'displays all trainer names on the /trainers page' do
     visit trainers_path
     expect(page).to have_content(@trainer1.name)
     expect(page).to have_content(@trainer2.name)
@@ -47,8 +47,15 @@ feature 'Trainer Index Page', type: :feature do
   end
 
   # User Story 2
-  scenario 'displays trainer by id' do
+  scenario 'displays all trainer attributes by id' do
     visit trainers_path(@trainer1)
+
     expect(page).to have_content(@trainer1.name)
+    expect(page).to have_content(@trainer1.region)
+    expect(page).to have_content(@trainer1.generation_introduced)
+    expect(page).to have_content(@trainer1.gym_leader)
+    expect(page).to have_content(@trainer1.assigned_pokemon_count)
+    expect(page).to have_content(@trainer1.created_at)
+    expect(page).to have_content(@trainer1.updated_at)
   end
 end
