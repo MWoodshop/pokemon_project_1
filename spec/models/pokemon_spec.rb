@@ -50,5 +50,7 @@ feature 'Pokemon Index Page', type: :feature do
     expect(page).to have_content(@pokemon1.weight)
     expect(page).to have_content(@pokemon1.can_evolve)
     expect(page).to have_content(@pokemon1.trainer_id)
+    expect(page).to have_content(@pokemon1.created_at)
+    expect(page).to have_content(@pokemon1.updated_at)
   end
 end
